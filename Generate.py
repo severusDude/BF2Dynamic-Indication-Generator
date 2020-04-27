@@ -84,4 +84,9 @@ class UserInterface(QtWidgets.QMainWindow):
         self.weapon_indi_input.setFont(self.input_font)
         self.weapon_indi_input.setMaxLength(7)
 
+        self.gen_button = QtWidgets.QPushButton(self.centralWidget)
+        self.gen_button.setGeometry(QtCore.QRect(10, 255, 125, 35))
+        self.gen_button.setText("GENERATE")
+        self.gen_button.setFont(self.button_font)
+
         MainWindow.setCentralWidget(self.centralWidget)
