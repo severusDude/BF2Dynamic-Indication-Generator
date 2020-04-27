@@ -10,6 +10,18 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui = UserInterface()
         self.main_ui.setupUi(self)
 
+    # defining system exception
+    def log_uncaught_exceptions(self, ex_cls, ex, tb):
+        text = '{}: {}:\n'.format(ex_cls.__name__, ex)
+        import traceback
+        text += ''.join(traceback.format_tb(tb))
+
+        print(text)
+        self.main_ui.QMessageBox.critical(None, 'Error', text)
+        quit()
+
+    sys.excepthook = log_uncaught_exceptions
+
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
