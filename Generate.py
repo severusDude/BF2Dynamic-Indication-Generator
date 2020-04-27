@@ -63,4 +63,25 @@ class UserInterface(QtWidgets.QMainWindow):
         }
         """)
 
+        # INPUTS
+        # weapon index input
+        self.weapon_index_input = QtWidgets.QLineEdit(self.centralWidget)
+        self.weapon_index_input.setGeometry(QtCore.QRect(10, 60, 365, 35))
+        self.weapon_index_input.setPlaceholderText("Example: 161")
+        self.weapon_index_input.setFont(self.input_font)
+        self.weapon_index_input.setValidator(self.only_int)
+
+        # weapon name input
+        self.weapon_name_input = QtWidgets.QLineEdit(self.centralWidget)
+        self.weapon_name_input.setGeometry(QtCore.QRect(10, 135, 365, 35))
+        self.weapon_name_input.setPlaceholderText("Example: USRIF_M4")
+        self.weapon_name_input.setFont(self.input_font)
+
+        # weapon indication input
+        self.weapon_indi_input = QtWidgets.QLineEdit(self.centralWidget)
+        self.weapon_indi_input.setGeometry(QtCore.QRect(10, 210, 365, 35))
+        self.weapon_indi_input.setPlaceholderText("Example: M4")
+        self.weapon_indi_input.setFont(self.input_font)
+        self.weapon_indi_input.setMaxLength(7)
+
         MainWindow.setCentralWidget(self.centralWidget)
