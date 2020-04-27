@@ -86,6 +86,9 @@ class UserInterface(QtWidgets.QMainWindow):
 
         self.gen_button = QtWidgets.QPushButton(self.centralWidget)
         self.gen_button.setGeometry(QtCore.QRect(10, 255, 125, 35))
+        icon = QtGui.QIcon()
+        icon.addFile('icons\\generate.ico')
+        self.gen_button.setIcon(icon)
         self.gen_button.setText("GENERATE")
         self.gen_button.setFont(self.button_font)
 
