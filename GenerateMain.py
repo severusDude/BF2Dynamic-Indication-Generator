@@ -21,6 +21,38 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.weapon_indi_input.textChanged.connect(
             self.weapon_indi_act)
 
+        self.main_ui.gen_button.clicked.connect(self.gen_button_act)
+        # self.main_ui.gen_button.setDisabled(True)
+
+    def gen_button_act(self):
+        if self.wep_index and len(self.wep_name) and len(self.wep_indi) > 0:
+            self.check_files()
+        else:
+            self.wep_index = 161
+            self.wep_name = "USRIF_M4"
+            self.wep_indi = "M4"
+            self.check_files()
+            # QtWidgets.QMessageBox.warning(
+            #     self, "Error", "You need to input all the textfield")
+
+    def check_files(self):
+        self.indi1_act(self.wep_index)
+
+    def indi1_act(self, index):
+        try:
+            with open('HUD\\HudSetup\\Killtext\\HudElementsIndication1.con', 'r+') as f:
+                print(f.readlines())
+                self.write_indi(f, 1, index)
+
+        except FileNotFoundError as e:
+            print(f"Required file not exist {e}")
+        finally:
+            f.close()
+
+    def write_indi(self, file, indi_page, indi_index):
+        string = f"hudBuilder.createPictureNode\tIngameHud Indication{indi_page}weapon{indi_index} 270 352 216 32\nhudBuilder.setPictureNodeTexture \tIngame/Killtext/Indication/Indicationweapon158.dds\nhudBuilder.setNodeShowVariable\tDemoRecInterfaceShow\nhudBuilder.setNodeColor\t\t1 1 1 0.8\nhudBuilder.setNodeInTime\t0.15\nhudBuilder.setNodeOutTime\t0.2\nhudBuilder.addNodeMoveShowEffect\t0 90\nhudBuilder.addNodeAlphaShowEffect\nhudBuilder.addNodeBlendEffect\t\t7 2\n\n"
+        file.write(string)
+
     # get weapon index from user input
     def weapon_index_act(self, value):
         self.main_ui.gen_button.setDisabled(False)
