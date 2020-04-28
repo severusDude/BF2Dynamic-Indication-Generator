@@ -65,5 +65,5 @@ class GenerateDictionary:
                 return line, index_str, num
 
 
-x = GenerateDictionary()
-x.init("bf4_scar_sv", 16, "SCAR SV")
+# x = GenerateDictionary()
+# x.init("bf4_scar_sv", 16, "SCAR SV")
