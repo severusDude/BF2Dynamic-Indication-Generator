@@ -1,5 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Generate import *
+from generateindication import *
 import qdarkstyle
 import sys
 
@@ -9,6 +10,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         super().__init__()
         self.main_ui = UserInterface()
         self.main_ui.setupUi(self)
+        self.gen_indi = GenerateIndication()
         self.wep_index = int()
         self.wep_name = str()
         self.wep_indi = str()
@@ -22,20 +24,15 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.weapon_indi_act)
 
         self.main_ui.gen_button.clicked.connect(self.gen_button_act)
-        # self.main_ui.gen_button.setDisabled(True)
 
     def gen_button_act(self):
         if self.wep_index and len(self.wep_name) and len(self.wep_indi) > 0:
-            self.weapon_dict_manage(
-                self.wep_index, self.wep_name, self.wep_indi)
-            # self.check_files()
+            self.gen_indi.init(self.wep_index)
         else:
             self.wep_index = 161
             self.wep_name = "USRIF_M4"
             self.wep_indi = "M4"
-            self.weapon_dict_manage(
-                self.wep_index, self.wep_name, self.wep_indi)
-            # self.check_files()
+            self.gen_indi.init(self.wep_index)
             # QtWidgets.QMessageBox.warning(
             #     self, "Error", "You need to input all the textfield")
 
@@ -70,40 +67,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             if index_str in line:
                 print(f"it here {index_str}")
                 return line, index_str
-
-    def line_num_for_phrase_in_file(self, phrase, file):
-        if phrase in file:
-            x = file.index(phrase)
-            return x
-
-        return -1
-        # for (i, line) in enumerate(file, 1):
-        #     if phrase in line:
-        #         return i
-        # return -1
-
-        # loop indication call based on page index
-    def check_files(self):
-        for page in range(1, 7):
-            self.indi_act(self.wep_index, page)
-
-    # control to open, close and write indication
-    def indi_act(self, index, file_index):
-        try:
-            with open(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{file_index}.con', 'r+') as f:
-                self.write_indi(f, file_index, index)
-
-        except FileNotFoundError as e:
-            print(f"Required file not exist {e}")
-            return False
-        finally:
-            f.close()
-
-    # write indication based on page index and weapon index
-    def write_indi(self, file, indi_page, indi_index):
-        string = f"hudBuilder.createPictureNode\tIngameHud Indication{indi_page}weapon{indi_index} 270 352 216 32\nhudBuilder.setPictureNodeTexture \tIngame/Killtext/Indication/Indicationweapon{indi_index}.dds\nhudBuilder.setNodeShowVariable\tDemoRecInterfaceShow\nhudBuilder.setNodeColor\t\t1 1 1 0.8\nhudBuilder.setNodeInTime\t0.15\nhudBuilder.setNodeOutTime\t0.2\nhudBuilder.addNodeMoveShowEffect\t0 90\nhudBuilder.addNodeAlphaShowEffect\nhudBuilder.addNodeBlendEffect\t\t7 2\n\n"
-        file.write(string)
-        return True
 
     # get weapon index from user input
     def weapon_index_act(self, value):
