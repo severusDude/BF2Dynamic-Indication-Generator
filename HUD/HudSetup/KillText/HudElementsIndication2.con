@@ -1,5 +1,5 @@
-hudBuilder.createPictureNode	IngameHud Indication2weapon158 270 376 216 32
-hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon158.dds
+hudBuilder.createPictureNode	IngameHud Indication2weapon161 270 352 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon161.dds
 hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
 hudBuilder.setNodeColor		1 1 1 0.8
 hudBuilder.setNodeInTime	0.15

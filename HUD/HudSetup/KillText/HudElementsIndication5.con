@@ -1,4 +1,5 @@
-hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon158.dds
+hudBuilder.createPictureNode	IngameHud Indication5weapon161 270 352 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon161.dds
 hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
 hudBuilder.setNodeColor		1 1 1 0.8
 hudBuilder.setNodeInTime	0.15
@@ -7,7 +8,6 @@ hudBuilder.addNodeMoveShowEffect	0 90
 hudBuilder.addNodeAlphaShowEffect
 hudBuilder.addNodeBlendEffect		7 2
 
-hudBuilder.createPictureNode	IngameHud Indication5weapon159 270 448 216 32
 hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon159.dds
 hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
 hudBuilder.setNodeColor		1 1 1 0.8
