@@ -42,7 +42,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
     def indi1_act(self, index, file_index):
         try:
             with open(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{file_index}.con', 'r+') as f:
-                print(f.readlines())
                 self.write_indi(f, file_index, index)
 
         except FileNotFoundError as e:
