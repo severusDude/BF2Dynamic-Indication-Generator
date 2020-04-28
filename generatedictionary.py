@@ -21,10 +21,19 @@ class GenerateDictionary:
 
         req_index = int(req_index)
         contents.insert(line_num,
-                        f"\n		\"{name}\"			 : {index},		 # {indi}\n")
+                        f"		\"{name}\"			 : {index},		 # {indi}\n")
         contents = "".join(contents)
+        del_file = self.clear_dict(file)
         file.write(contents)
         return contents
+
+    # def find_dict_loc(self, file, index):
+    #     print("yes")
+    #     index_str = index - 1
+    #     for num, line in enumerate(file, 1):
+    #         if str(index_str) in line:
+    #             print(f"it here {index_str}")
+    #             return line, index_str, num
 
     def find_dict_loc(self, file, index):
         index_str = index - 1
@@ -34,6 +43,12 @@ class GenerateDictionary:
                 print(f"it here {index_str}")
                 return line, index_str, num
 
+    def clear_dict(self, del_contents):
+        del_contents.read().split("\n")
+        del_contents.seek(0)
+        del_contents.truncate()
+        return del_contents
+
 
 # x = GenerateDictionary()
-# x.init("bf4_scar_sv", 16, "SCAR SV")
+# x.init("bf4_scar_sv", 129, "SCAR SV")
