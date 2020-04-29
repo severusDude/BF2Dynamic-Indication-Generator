@@ -1,5 +1,2359 @@
-hudBuilder.createPictureNode	IngameHud Indication4weapon161 270 352 216 32
-hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon161.dds
+
+rem Flag Events
+
+hudBuilder.createPictureNode		IngameHud Indication4cap 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationcap.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4capas 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationcapas.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4def 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationdef.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4att 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationatt.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4neu 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationneu.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4neuas 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationneuas.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+
+rem Kill Events
+
+
+hudBuilder.createPictureNode		IngameHud Indication4kill 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkill.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4vehicle 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationvehicle.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4vehicleg 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationvehicleg.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4vehicles 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationvehicles.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4vehicled 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationvehicled.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4headshot 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationheadshot.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4melee 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationmelee.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+
+rem Information
+
+hudBuilder.createPictureNode		IngameHud Indication4marksman 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationmarksman.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4command 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationcommand.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4kill2 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indication2kill.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4kill3 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indication3kill.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4kill4 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indication4kill.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4kills 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkills.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4killt 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillt.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+
+hudBuilder.createPictureNode		IngameHud Indication4killp 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillp.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4killn 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkilln.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4killpn 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillpn.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4killr 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillr.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4killc 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillc.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4killq 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationkillq.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+rem Misc Events
+
+hudBuilder.createPictureNode		IngameHud Indication4ammo 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationammo.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4assist 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationassist.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4assistt 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationassistt.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4assistd 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationassistd.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4assistp 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationassistp.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4heal 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationheal.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode		IngameHud Indication4repair 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationrepair.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+hudBuilder.createPictureNode		IngameHud Indication4revive 270 424 216 32
+hudBuilder.setPictureNodeTexture	Ingame/Killtext/Indication/Indicationrevive.dds
+hudBuilder.setNodeShowVariable		DemoRecInterfaceShow
+hudBuilder.setNodeColor			1 1 1 0.8
+hudBuilder.setNodeInTime		0.15
+hudBuilder.setNodeOutTime		0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+
+
+
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman1 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman1.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman2 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman2.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman3 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman3.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman4 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman4.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman5 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman5.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman6 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman6.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman7 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman7.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman8 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman8.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman9 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman9.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman10 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman10.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman11 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman11.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman12 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman12.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman13 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman13.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman14 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman14.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman15 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman15.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman16 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman16.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman17 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman17.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman18 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman18.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman19 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman19.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman20 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman20.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman21 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman21.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman22 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman22.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman23 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman23.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman24 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman24.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman25 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman25.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman26 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman26.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman27 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman27.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman28 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman28.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman29 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman29.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman30 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman30.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman31 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman31.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman32 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman32.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman33 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman33.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman34 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman34.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman35 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman35.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman36 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman36.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman37 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman37.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman38 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman38.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman39 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman39.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4marksman40 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationmarksman40.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon0 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon0.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon1 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon1.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon2 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon2.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon3 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon3.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon4 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon4.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon5 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon5.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon6 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon6.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon7 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon7.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon8 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon8.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon9 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon9.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon10 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon10.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon11 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon11.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon12 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon12.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon13 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon13.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon14 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon14.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon15 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon15.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon16 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon16.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon17 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon17.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon18 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon18.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon19 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon19.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon20 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon20.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon21 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon21.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon22 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon22.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon23 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon23.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon24 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon24.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon25 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon25.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon26 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon26.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon27 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon27.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon28 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon28.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon29 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon29.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon30 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon30.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon31 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon31.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon32 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon32.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon33 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon33.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon34 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon34.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon35 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon35.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon36 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon36.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon37 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon37.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon38 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon38.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon39 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon39.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon40 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon40.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon41 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon41.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon42 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon42.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon43 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon43.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon44 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon44.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon45 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon45.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon46 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon46.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon47 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon47.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon48 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon48.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon49 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon49.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon50 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon50.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon51 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon51.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon52 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon52.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon53 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon53.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon54 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon54.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon55 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon55.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon56 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon56.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon57 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon57.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon58 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon58.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon59 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon59.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon60 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon60.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon61 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon61.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon62 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon62.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon63 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon63.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon64 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon64.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon65 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon65.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon66 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon66.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon67 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon67.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon68 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon68.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon69 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon69.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon70 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon70.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon71 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon71.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon72 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon72.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon73 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon73.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon74 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon74.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon75 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon75.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon76 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon76.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon77 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon77.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon78 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon78.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon79 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon79.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon80 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon80.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon81 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon81.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon82 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon82.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon83 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon83.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon84 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon84.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon85 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon85.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon86 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon86.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon87 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon87.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon88 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon88.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon89 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon89.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon90 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon90.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon91 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon91.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon92 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon92.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon93 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon93.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon94 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon94.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon95 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon95.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon96 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon96.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon97 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon97.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon98 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon98.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon99 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon99.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon100 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon100.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon101 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon101.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon102 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon102.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon103 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon103.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon104 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon104.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon105 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon105.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon106 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon106.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon107 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon107.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon108 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon108.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon109 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon109.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon110 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon110.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon111 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon111.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon112 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon112.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon113 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon113.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon114 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon114.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon115 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon115.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon116 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon116.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon117 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon117.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon118 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon118.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon119 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon119.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon120 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon120.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon121 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon121.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon122 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon122.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon123 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon123.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon124 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon124.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon125 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon125.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon126 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon126.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon127 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon127.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon128 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon128.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon129 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon129.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon130 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon130.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon131 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon131.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon132 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon132.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon133 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon133.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon134 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon134.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon135 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon135.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon136 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon136.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon137 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon137.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon138 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon138.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon139 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon139.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon140 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon140.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon141 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon141.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon142 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon142.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon143 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon143.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon144 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon144.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon145 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon145.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon146 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon146.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon147 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon147.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon148 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon148.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon149 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon149.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon150 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon150.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon151 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon151.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon152 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon152.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon153 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon153.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon154 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon154.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon155 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon155.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon156 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon156.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon157 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon157.dds
+hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
+hudBuilder.setNodeColor		1 1 1 0.8
+hudBuilder.setNodeInTime	0.15
+hudBuilder.setNodeOutTime	0.2
+hudBuilder.addNodeMoveShowEffect	0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect		7 2
+
+hudBuilder.createPictureNode	IngameHud Indication4weapon158 270 424 216 32
+hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon158.dds
 hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
 hudBuilder.setNodeColor		1 1 1 0.8
 hudBuilder.setNodeInTime	0.15
@@ -27,3 +2381,6 @@ hudBuilder.setNodeOutTime	0.2
 hudBuilder.addNodeMoveShowEffect	0 90
 hudBuilder.addNodeAlphaShowEffect
 hudBuilder.addNodeBlendEffect		7 2
+
+
+
