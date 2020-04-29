@@ -75,5 +75,5 @@ and install the qdarkstyle stylesheet by using\
 * [severusDude](https://github.com/severusDude) - Bluenix_Indo(ModDB)
 
 ## License
-This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/LICENSE) file for details
 
