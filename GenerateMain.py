@@ -18,6 +18,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.wep_name = str()
         self.wep_indi = str()
         self.f1_status = bool()
+        self.f1_status_1 = bool()
         self.f2_status = bool()
         self.f3_status = bool()
 
@@ -38,38 +39,58 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             att_wep = "HUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con"
             wep_dict = "game\\weapons.py"
             read_file = 'r+'
-            for page in range(1, 7):
-                if self.find_file(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con', read_file):
+            index_start = 1
+            index_end = 7
+            index_list = list()
+            index_listed = [temp for temp in range(index_start, index_end)]
+
+            # check HudElementsIndication1-6.con files
+            for page in range(index_start, index_end):
+                if self.check_file(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con', read_file):
                     self.f1_status = True
                 else:
                     self.f1_status = False
                     QtWidgets.QMessageBox.warning(
                         self, "Error 1", f"Error code: 1\nIndication{page} files not found")
 
-            if self.find_file(att_wep, read_file):
+                if self.f1_status:
+                    index_list.append(page)
+                else:
+                    print(f"error at {page}")
+
+            if index_list == index_listed:
+                self.f1_status_1 = True
+            else:
+                self.f1_status_1 = False
+
+            # check HudElementsAttackerWeapon.con
+            if self.check_file(att_wep, read_file):
                 self.f2_status = True
             else:
                 self.f2_status = False
                 QtWidgets.QMessageBox.warning(
                     self, "Error 2", f"Error code: 2\nAttackerWeapon file not found")
 
-            if self.find_file(wep_dict, read_file):
+            # check weapons.py file
+            if self.check_file(wep_dict, read_file):
                 self.f3_status = True
             else:
                 self.f3_status = False
                 QtWidgets.QMessageBox.warning(
                     self, "Error 3", "Error code: 3\nweapons.py file not found")
 
-            if self.f1_status == True and self.f2_status == True and self.f3_status == True:
+            # action if all required file is checked and exist
+            if self.f1_status_1 == True and self.f2_status == True and self.f3_status == True:
                 self.gen_indi.init(self.wep_index)
                 self.gen_dict.init(
                     self.wep_name, self.wep_index, self.wep_indi)
+                print("pass the test")
 
         else:
             QtWidgets.QMessageBox.warning(
                 self, "Error", "You need to input all the textfield")
 
-    def find_file(self, file, open_mode):
+    def check_file(self, file, open_mode):
         try:
             with open(file, open_mode) as file_read:
                 return True
