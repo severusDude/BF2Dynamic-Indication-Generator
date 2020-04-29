@@ -72,7 +72,7 @@ and install the qdarkstyle stylesheet by using\
 *This project made with python version 3.7.2*
 
 ## Author
-* [github.com/severusDude](severusDude) - Bluenix_Indo(ModDB)
+* [https://github.com/severusDude](severusDude) - Bluenix_Indo(ModDB)
 
 ## License
 This project is licensed under the GNU General Public License v3.0 License - see the LICENSE.md file for details
