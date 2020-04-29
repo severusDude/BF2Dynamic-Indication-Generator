@@ -1,3 +1,5 @@
 *.code-workspace
 *.exe
+.vscode
+venv
 __pycache__
