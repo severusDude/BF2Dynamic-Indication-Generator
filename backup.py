@@ -56,6 +56,16 @@ class BackupFiles:
         dict_file = fnmatch.filter(os.listdir(generated_folder_loc), '*.py')
         count_files = len(indi_files + dict_file)
 
+        # print(f"type {type(generated_folder)} content {generated_folder}")
+        # print(
+        #     f"type {type(generated_folder_loc)} content {generated_folder_loc}")
+        # print(f"type {type(indi_files)} content {indi_files}")
+        # print(f"type {type(dict_file)} content {dict_file}")
+        # print(f"type {type(count_files)} content {count_files}")
+        # print(f"type {type(req_file_1)} content {req_file_1}")
+        # print(f"type {type(req_file_2)} content {req_file_2}")
+        # print(f"type {type(req_temp_list)} content {req_temp_list}")
+
         if count_files == 8:
             print(f"succes")
 
