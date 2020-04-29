@@ -32,63 +32,70 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
         # connect gen_button to gen_button_act function
         self.main_ui.gen_button.clicked.connect(self.gen_button_act)
+        self.main_ui.gen_button.setDisabled(True)
 
     def gen_button_act(self):
         if self.wep_index and len(self.wep_name) and len(self.wep_indi) > 0:
-            # over complicated lol
-            att_wep = "HUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con"
-            wep_dict = "game\\weapons.py"
-            read_file = 'r+'
-            index_start = 1
-            index_end = 7
-            index_list = list()
-            index_listed = [temp for temp in range(index_start, index_end)]
-
-            # check HudElementsIndication1-6.con files
-            for page in range(index_start, index_end):
-                if self.check_file(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con', read_file):
-                    self.f1_status = True
-                else:
-                    self.f1_status = False
-                    QtWidgets.QMessageBox.warning(
-                        self, "Error 1", f"Error code: 1\nIndication{page} files not found")
-
-                if self.f1_status:
-                    index_list.append(page)
-                else:
-                    print(f"error at {page}")
-
-            if index_list == index_listed:
-                self.f1_status_1 = True
-            else:
-                self.f1_status_1 = False
-
-            # check HudElementsAttackerWeapon.con
-            if self.check_file(att_wep, read_file):
-                self.f2_status = True
-            else:
-                self.f2_status = False
-                QtWidgets.QMessageBox.warning(
-                    self, "Error 2", f"Error code: 2\nAttackerWeapon file not found")
-
-            # check weapons.py file
-            if self.check_file(wep_dict, read_file):
-                self.f3_status = True
-            else:
-                self.f3_status = False
-                QtWidgets.QMessageBox.warning(
-                    self, "Error 3", "Error code: 3\nweapons.py file not found")
+            self.start_check()
 
             # action if all required file is checked and exist
             if self.f1_status_1 == True and self.f2_status == True and self.f3_status == True:
                 self.gen_indi.init(self.wep_index)
                 self.gen_dict.init(
                     self.wep_name, self.wep_index, self.wep_indi)
-                print("pass the test")
 
         else:
             QtWidgets.QMessageBox.warning(
-                self, "Error", "You need to input all the textfield")
+                self, "Error EI_1", "You need to input all the textfield")
+
+    # start checking required files
+    def start_check(self):
+        # required files location
+        att_wep = "HUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con"
+        wep_dict = "game\\weapons.py"
+
+        read_file = 'r+'
+
+        index_start = 1
+        index_end = 7
+        index_list = list()
+        index_listed = [temp for temp in range(index_start, index_end)]
+
+        # check HudElementsIndication1-6.con files
+        for page in range(index_start, index_end):
+            indi_files = f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con'
+            if self.check_file(indi_files, read_file):
+                self.f1_status = True
+            else:
+                self.f1_status = False
+                QtWidgets.QMessageBox.critical(
+                    self, "Error FNE_A_1", f"Error code: A_{page}\n\nRequired file is missing:\n\tHUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con")
+
+            if self.f1_status:
+                index_list.append(page)
+            else:
+                print(f"error at HudElementsIndication{page}.con")
+
+        if index_list == index_listed:
+            self.f1_status_1 = True
+        else:
+            self.f1_status_1 = False
+
+        # check HudElementsAttackerWeapon.con
+        if self.check_file(att_wep, read_file):
+            self.f2_status = True
+        else:
+            self.f2_status = False
+            QtWidgets.QMessageBox.critical(
+                self, "Error FNE_B_2", f"Error code: B_2\n\nRequired file is missing:\n\tHUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con")
+
+        # check weapons.py file
+        if self.check_file(wep_dict, read_file):
+            self.f3_status = True
+        else:
+            self.f3_status = False
+            QtWidgets.QMessageBox.critical(
+                self, "Error FNE_C_3", "Error code: C_1\n\nRequired file is missing:\n\tgame\\weapons.py")
 
     def check_file(self, file, open_mode):
         try:
