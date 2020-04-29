@@ -12,8 +12,8 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 4. Fill all the input correspond to your wanted
 5. Press the generate button
 
-> [!CAUTION]
-> My code is trash, so better to check the files after generating. but atleast it work afaik.
+**CAUTION**\
+*My code is trash, so better to check the files after generating. but atleast it work afaik.*
 
 ### Hope list
 Hopefully i could **do** all item in this list
@@ -31,14 +31,14 @@ Clone this repository by writing
 `https://github.com/severusDude/BF2Dynamic-Indication-Generator.git`
 
 ### Setup
-Install the pyqt5 framework from pip by using
-`pip install pyqt5`
-and install the qdarkstyle stylesheet by using
+Install the pyqt5 framework from pip by using\
+`pip install pyqt5`\
+and install the qdarkstyle stylesheet by using\
 `pip install qdarkstyle`
 
 ## Built with
 * [pyqt5](https://pypi.org/project/PyQt5/) - The app framework used
 * [qdarkstyle](https://pypi.org/project/QDarkStyle/) - The app stylesheet used
-  
-> [!NOTE]
-> This project made with python version 3.7.2
+
+**NOTE**\  
+*This project made with python version 3.7.2*
