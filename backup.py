@@ -12,9 +12,15 @@ class BackupFiles:
         backup_file = fnmatch.filter(os.listdir(dir_path), '*.zip')
         backup_file_count = len(backup_file)
 
-        self.listing_files(indi_dir_path, dict_dir_path)
+        if backup_file_count <= 5:
+            self.listing_files(dir_path, indi_dir_path, dict_dir_path)
+        elif backup_file_count == 6:
+            os.remove(f"{dir_path}\\{backup_file[0]}")
+            os.remove(f"{dir_path}\\{backup_file[1]}")
+        else:
+            os.remove(f"{dir_path}\\{backup_file[0]}")
 
-    def listing_files(self, indi_dir_path, dict_dir_path):
+    def listing_files(self, dir_path, indi_dir_path, dict_dir_path):
         req_file_1 = fnmatch.filter(os.listdir(indi_dir_path), '*.con')
         req_file_2 = fnmatch.filter(os.listdir(dict_dir_path), '*.py')
 
@@ -22,6 +28,7 @@ class BackupFiles:
         temp = 'temp'
         generated_folder = f'Backup_{current_time}'
         generated_folder_loc = f"{temp}\\{generated_folder}"
+        dir_path = f"{dir_path}\\{generated_folder}"
 
         if not os.path.exists(temp):
             os.makedirs(temp)
@@ -65,15 +72,30 @@ class BackupFiles:
         # print(f"type {type(req_file_1)} content {req_file_1}")
         # print(f"type {type(req_file_2)} content {req_file_2}")
         # print(f"type {type(req_temp_list)} content {req_temp_list}")
+        print(dir_path)
+        print(f"{generated_folder_loc}")
 
         if count_files == 8:
-            print(f"succes")
+            succes = self.compress_files(dir_path, generated_folder_loc, temp)
+            # if succes:
+            #     print("succes")
+            # else:
+            #     print("failed")
+        else:
+            print(f"Required file missing")
 
-    def compress_files(self, dir_name, files):
-        files = list()
-        for item in files:
-            shutil.make_archive(item, 'zip', dir_name)
+    def compress_files(self, output_dir, dir_name, del_dir):
+        shutil.make_archive(output_dir, 'zip', dir_name)
+        # if not os.path.exists(output_dir):
+        #     return False
+        # else:
+        # if not os.path.exists(f"{dir_name}"):
+        #     return False
+        # else:
+        shutil.rmtree(del_dir)
+        #     return True
+        # return True
 
 
 x = BackupFiles()
-print(x.init('backup', 'HUD\\HudSetup\\Killtext', 'game'))
+print(x.init('backups', 'HUD\\HudSetup\\Killtext', 'game'))
