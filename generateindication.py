@@ -39,7 +39,3 @@ class GenerateIndication:
         else:
             print("invalid key")
         return True
-
-
-x = GenerateIndication()
-x.init(161)
