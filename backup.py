@@ -5,9 +5,10 @@ import os
 
 
 class BackupFiles:
-    def __init__(self, req_dir1_path, req_dir2_path):
+    def __init__(self, req_dir1_path, req_dir2_path, backup_fileslimit):
         self.backup_dir_path = 'backups'
         self.temp_dir_path = 'temp'
+        self.backup_fileslimit = backup_fileslimit
         self.dir1_filetype = '*.con'
         self.dir2_filetype = '*.py'
         self.backup_filetype = '*.zip'
@@ -46,7 +47,7 @@ class BackupFiles:
             os.listdir(self.backup_dir_path), '*.zip')
         self.backup_files_count = len(self.backup_files)
 
-        if self.backup_files_count > 5:
+        if self.backup_files_count > self.backup_fileslimit:
             os.remove(f"{self.backup_dir_path}\\{self.backup_files[0]}")
 
         self.listing_files()
