@@ -3,4 +3,6 @@
 .vscode
 temp
 backups
+HUD
+game
 __pycache__
