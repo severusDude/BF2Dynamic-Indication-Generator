@@ -33,24 +33,8 @@ class BackupFiles:
         self.gen_backupdir_path = f'{self.temp_dir_path}\\{self.backup_filename}'
         # output will be temp\Backup_(current_time)
 
-        # print(self.req_dir1_path)
-        # print(self.req_dir2_path)
-        # print(self.dir1_filelist)
-        # print(self.dir2_filelist)
-        # print(self.current_time)
-        # print(self.backup_filename)
-        # print(self.gen_backupfile_path)
-        # print(self.gen_backupdir_path)
-
         if len(self.req_dir1_path) and len(self.req_dir2_path) > 0:
-            print("succes")
-            print(
-                f"parameter1 contain {len(self.req_dir1_path)} character\nparameter1 contain {len(self.req_dir2_path)} character")
             self.init()
-        else:
-            print("error")
-            print(
-                f"parameter1 contain {len(self.req_dir1_path)} character\nparameter1 contain {len(self.req_dir2_path)} character")
 
     def init(self):
         if not os.path.exists(self.backup_dir_path):
@@ -75,7 +59,6 @@ class BackupFiles:
             self.req_dir2_path), self.dir2_filetype)
 
         self.copy_file()
-        print("copy succes")
 
         filelist_type1 = fnmatch.filter(os.listdir(
             self.gen_backupdir_path), self.dir1_filetype)
@@ -83,19 +66,11 @@ class BackupFiles:
             self.gen_backupdir_path), self.dir2_filetype)
         count_files = len(filelist_type1) + len(filelist_type2)
 
-        print(filelist_type1)
-        print(filelist_type2)
-        print(count_files)
-
         if count_files == 8:
-            succes = self.compress_files(
+            compress_succes = self.compress_files(
                 self.gen_backupfile_path, self.gen_backupdir_path)
-            if succes:
-                print("succesada")
-            else:
-                print("failedadadw")
         else:
-            print(f"Required file missing")
+            print("Required file missing")
 
     def copy_file(self):
 
@@ -149,24 +124,13 @@ class BackupFiles:
         shutil.make_archive(backup_filename, 'zip',
                             backup_dirsource)
 
-        temp_list1 = fnmatch.filter(os.listdir(
-            self.backup_dir_path), '*.zip')
+        for file in self.backup_files:
+            if file == f'{self.backup_filename}.zip':
+                print(f"Backup {file} is succesfully generated")
+                gen_succes = True
 
-        temp_list2 = os.listdir(self.temp_dir_path)
-        print(temp_list2)
-
-        for temp_listitem in temp_list1:
-            print(temp_listitem)
-            if temp_listitem == f'{self.backup_filename}.zip':
-                print("exist fafaffafa")
-                status = True
-
-        if status:
+        if gen_succes:
             shutil.rmtree(self.temp_dir_path)
             return True
         else:
             return False
-
-
-x = BackupFiles('HUD\\HudSetup\\Killtext', 'game')
-print(x)
