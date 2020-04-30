@@ -20,6 +20,7 @@ class BackupFiles:
         self.temp_dirs = list()
         self.temp_dirs_count = int()
         self.status = bool()
+        self.compress_succes = bool()
 
         self.current_time = datetime.datetime.now().strftime("%d-%m-%Y %H.%M")
         # output will be (day)-(month)-(year) (hour).(minute)
@@ -36,6 +37,7 @@ class BackupFiles:
         if len(self.req_dir1_path) and len(self.req_dir2_path) > 0:
             self.init()
 
+    # start the whole system
     def init(self):
         if not os.path.exists(self.backup_dir_path):
             os.makedirs(self.backup_dir_path)
@@ -44,14 +46,12 @@ class BackupFiles:
             os.listdir(self.backup_dir_path), '*.zip')
         self.backup_files_count = len(self.backup_files)
 
-        print(self.backup_files)
-        print(self.backup_files_count)
-
         if self.backup_files_count > 5:
             os.remove(f"{self.backup_dir_path}\\{self.backup_files[0]}")
 
         self.listing_files()
 
+    # list files that are inside given directiories
     def listing_files(self):
         self.dir1_filelist = fnmatch.filter(os.listdir(
             self.req_dir1_path), self.dir1_filetype)
@@ -67,11 +67,12 @@ class BackupFiles:
         count_files = len(filelist_type1) + len(filelist_type2)
 
         if count_files == 8:
-            compress_succes = self.compress_files(
+            self.compress_succes = self.compress_files(
                 self.gen_backupfile_path, self.gen_backupdir_path)
         else:
             print("Required file missing")
 
+    # copy listed files into a temporary backup folder
     def copy_file(self):
 
         if not os.path.exists(self.temp_dir_path):
@@ -89,7 +90,6 @@ class BackupFiles:
             for dir1_loop in self.dir1_filelist:
                 dir1_loop = f'{self.req_dir1_path}\\{dir1_loop}'
                 if os.path.exists(dir1_loop):
-                    print(dir1_loop)
                     shutil.copy(dir1_loop, self.gen_backupdir_path)
                     tempdir1_list.append(dir1_loop)
                 else:
@@ -108,7 +108,6 @@ class BackupFiles:
             for dir2_loop in self.dir2_filelist:
                 dir2_loop = f'{self.req_dir2_path}\\{dir2_loop}'
                 if os.path.exists(dir2_loop):
-                    print(dir2_loop)
                     shutil.copy(dir2_loop, self.gen_backupdir_path)
                 else:
                     print(f"error at {dir2_loop}")
@@ -118,16 +117,19 @@ class BackupFiles:
             else:
                 self.status = False
         else:
-            print("goddam")
+            print("Required condition is not meet")
 
+    # compress temporary backup folder and erased the temporay backup folder
     def compress_files(self, backup_filename, backup_dirsource):
         shutil.make_archive(backup_filename, 'zip',
                             backup_dirsource)
 
-        for file in self.backup_files:
-            if file == f'{self.backup_filename}.zip':
-                print(f"Backup {file} is succesfully generated")
-                gen_succes = True
+        gen_succes = bool()
+
+        if os.path.exists(f'{backup_filename}.zip'):
+            gen_succes = True
+        else:
+            gen_succes = False
 
         if gen_succes:
             shutil.rmtree(self.temp_dir_path)
