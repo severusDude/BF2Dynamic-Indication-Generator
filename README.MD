@@ -4,6 +4,14 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 * **HudElementsIndication1-6.con**
 * **HudElementsAttackerWeapon.con**
 * **weapons.py**
+
+## Features
+* Automatic generate scripts on:
+  * **HudElementsIndication1-6.con**
+  * **HudElementsAttackerWeapon.con**
+  * **weapons.py**\
+  *it mean, you don't need to worry about write the required scripts anymore*
+* Automatic backup everytime you generate with limiter
  
 ## Usage
 ### Instruction
