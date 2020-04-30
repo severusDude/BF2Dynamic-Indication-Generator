@@ -1,5 +1,7 @@
 # AGM114D Dynamic Indication script generator
 
+![alt text](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "App image")
+
 Handy tool that automatically generate required AGM114D Dynamic Indication mod script, such as:
 * **HudElementsIndication1-6.con**
 * **HudElementsAttackerWeapon.con**
