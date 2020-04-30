@@ -50,6 +50,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                     self.gen_indi.init(self.wep_index)
                     self.gen_dict.init(
                         self.wep_name, self.wep_index, self.wep_indi)
+                    QtWidgets.QMessageBox.information(
+                        self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly")
                 else:
                     QtWidgets.QMessageBox.critical(
                         self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
