@@ -3,6 +3,6 @@
 .vscode
 temp
 backups
-HUD
-game
+HUD\HudSetup\Killtext\*.con
+game\*.py
 __pycache__
