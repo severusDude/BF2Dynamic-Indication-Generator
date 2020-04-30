@@ -26,10 +26,10 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 7. It should pop up a notification window after generating was succesfull
    
 ### Example
-**Your input should look like this**
-![fill_inputfield](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "Input examples")\
+**Your input should look like this**\
+![fill_inputfield](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "Input examples")
 
-**After succesfull generating**
+**After succesfull generating**\
 ![succes_generate](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0%20generate%20succes.png "Succesfull generate")
 
 
