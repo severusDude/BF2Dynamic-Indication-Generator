@@ -7,7 +7,7 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
  
 ## Usage
 ### Instruction
-1. Go to release page
+1. Go to [release page](https://github.com/severusDude/BF2Dynamic-Indication-Generator/releases)
 2. Download the lastest release(**Crypter.exe**)
 3. Place it on a directory alongside with [**Structure**](https://github.com/severusDude/BF2Dynamic-Indication-Generator#structure)
 4. Run the file
@@ -15,6 +15,9 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 6. Press the generate button
 7. Pray it work
 
+**CAUTION**\
+*My code is trash, so better to check the files after generating. but atleast it work afaik*\
+*but if it isn't working the way it should, there should a compress file inside backups, pick the most recent one*
 ### Weapon index fill
 To fill weapon index there is certain guide
 1. see your weapons.py and go to the most bottom.
@@ -50,8 +53,6 @@ Place the **Crypter.exe** inside directory with structure like shown below
   *Example: from index 160 to 234*
 
 
-**CAUTION**\
-*My code is trash, so better to check the files after generating. but atleast it work afaik.*
 
 ## Getting started
 
