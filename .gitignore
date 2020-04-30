@@ -3,6 +3,6 @@
 .vscode
 temp
 backups
-HUD\HudSetup\Killtext\*.con
+/HUD
 game\weapons.py
 __pycache__
