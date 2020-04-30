@@ -1,6 +1,6 @@
 # AGM114D Dynamic Indication script generator
 
-![alt text](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "App image")
+![app_example](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "App image")
 
 Handy tool that automatically generate required AGM114D Dynamic Indication mod script, such as:
 * **HudElementsIndication1-6.con**
@@ -23,7 +23,16 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 4. Run the file
 5. Fill all the input correspond to your wanted with inputting weapon index follow the rule [**Weapon index fill**](https://github.com/severusDude/BF2Dynamic-Indication-Generator#weapon-index-fill)
 6. Press the generate button
-7. Pray it work
+7. It should pop up a notification window after generating was succesfull
+   
+### Example
+**Your input should look like this**
+![fill_inputfield](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "Input examples")\
+
+**After succesfull generating**
+![succes_generate](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0%20generate%20succes.png "Succesfull generate")
+
+
 
 **CAUTION**\
 *My code is trash, so better to check the files after generating. but atleast it work afaik*\
