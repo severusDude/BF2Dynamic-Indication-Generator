@@ -5,49 +5,122 @@ import os
 
 
 class BackupFiles:
-    def init(self, dir_path, indi_dir_path, dict_dir_path):
-
-        if not os.path.exists(dir_path):
-            os.makedirs(dir_path)
-        backup_file = fnmatch.filter(os.listdir(dir_path), '*.zip')
-        backup_file_count = len(backup_file)
-
-        if backup_file_count <= 5:
-            self.listing_files(dir_path, indi_dir_path, dict_dir_path)
-        elif backup_file_count == 6:
-            os.remove(f"{dir_path}\\{backup_file[0]}")
-            os.remove(f"{dir_path}\\{backup_file[1]}")
-        else:
-            os.remove(f"{dir_path}\\{backup_file[0]}")
-
-    def listing_files(self, dir_path, indi_dir_path, dict_dir_path):
-        req_file_1 = fnmatch.filter(os.listdir(indi_dir_path), '*.con')
-        req_file_2 = fnmatch.filter(os.listdir(dict_dir_path), '*.py')
-
-        current_time = datetime.datetime.now().strftime("%d-%m-%Y %H.%M")
-        temp = 'temp'
-        generated_folder = f'Backup_{current_time}'
-        generated_folder_loc = f"{temp}\\{generated_folder}"
-        dir_path = f"{dir_path}\\{generated_folder}"
-
-        if not os.path.exists(temp):
-            os.makedirs(temp)
-        if not os.path.exists(generated_folder_loc):
-            os.makedirs(generated_folder_loc)
-
-        req_temp_list = list()
+    def __init__(self, req_dir1_path, req_dir2_path):
+        self.backup_dir_path = 'backups'
+        self.temp_dir_path = 'temp'
+        self.dir1_filetype = '*.con'
+        self.dir2_filetype = '*.py'
+        self.backup_filetype = '*.zip'
+        self.req_dir1_path = req_dir1_path
+        self.req_dir2_path = req_dir2_path
+        self.dir1_filelist = list()
+        self.dir2_filelist = list()
+        self.backup_files = list()
+        self.backup_files_count = int()
+        self.temp_dirs = list()
+        self.temp_dirs_count = int()
         self.status = bool()
 
-        try:
-            for loop_file in req_file_1:
-                loop_file = f"{indi_dir_path}\\{loop_file}"
-                if os.path.exists(loop_file):
-                    shutil.copy(loop_file, generated_folder_loc)
-                    req_temp_list.append(loop_file)
-                else:
-                    print(f"error at {loop_file}")
+        self.current_time = datetime.datetime.now().strftime("%d-%m-%Y %H.%M")
+        # output will be (day)-(month)-(year) (hour).(minute)
 
-            if len(req_temp_list) == len(req_file_1):
+        self.backup_filename = f'Backup_{self.current_time}'
+        # output will be Backup_(day)-(month)-(year) (hour).(minute)
+
+        self.gen_backupfile_path = f'{self.backup_dir_path}\\{self.backup_filename}'
+        # output will be backups\Backup_(current_time)
+
+        self.gen_backupdir_path = f'{self.temp_dir_path}\\{self.backup_filename}'
+        # output will be temp\Backup_(current_time)
+
+        # print(self.req_dir1_path)
+        # print(self.req_dir2_path)
+        # print(self.dir1_filelist)
+        # print(self.dir2_filelist)
+        # print(self.current_time)
+        # print(self.backup_filename)
+        # print(self.gen_backupfile_path)
+        # print(self.gen_backupdir_path)
+
+        if len(self.req_dir1_path) and len(self.req_dir2_path) > 0:
+            print("succes")
+            print(
+                f"parameter1 contain {len(self.req_dir1_path)} character\nparameter1 contain {len(self.req_dir2_path)} character")
+            self.init()
+        else:
+            print("error")
+            print(
+                f"parameter1 contain {len(self.req_dir1_path)} character\nparameter1 contain {len(self.req_dir2_path)} character")
+
+    def init(self):
+        if not os.path.exists(self.backup_dir_path):
+            os.makedirs(self.backup_dir_path)
+
+        self.backup_files = fnmatch.filter(
+            os.listdir(self.backup_dir_path), '*.zip')
+        self.backup_files_count = len(self.backup_files)
+
+        print(self.backup_files)
+        print(self.backup_files_count)
+
+        if self.backup_files_count > 5:
+            os.remove(f"{self.backup_dir_path}\\{self.backup_files[0]}")
+
+        self.listing_files()
+
+    def listing_files(self):
+        self.dir1_filelist = fnmatch.filter(os.listdir(
+            self.req_dir1_path), self.dir1_filetype)
+        self.dir2_filelist = fnmatch.filter(os.listdir(
+            self.req_dir2_path), self.dir2_filetype)
+
+        self.copy_file()
+        print("copy succes")
+
+        filelist_type1 = fnmatch.filter(os.listdir(
+            self.gen_backupdir_path), self.dir1_filetype)
+        filelist_type2 = fnmatch.filter(os.listdir(
+            self.gen_backupdir_path), self.dir2_filetype)
+        count_files = len(filelist_type1) + len(filelist_type2)
+
+        print(filelist_type1)
+        print(filelist_type2)
+        print(count_files)
+
+        if count_files == 8:
+            succes = self.compress_files(
+                self.gen_backupfile_path, self.gen_backupdir_path)
+            if succes:
+                print("succesada")
+            else:
+                print("failedadadw")
+        else:
+            print(f"Required file missing")
+
+    def copy_file(self):
+
+        if not os.path.exists(self.temp_dir_path):
+            os.makedirs(self.temp_dir_path)
+        if not os.path.exists(self.gen_backupdir_path):
+            os.makedirs(self.gen_backupdir_path)
+
+        self.temp_dirs = os.listdir(self.temp_dir_path)
+        self.temp_dirs_count = len(self.temp_dirs)
+
+        tempdir1_list = list()
+        tempdir2_list = list()
+
+        try:
+            for dir1_loop in self.dir1_filelist:
+                dir1_loop = f'{self.req_dir1_path}\\{dir1_loop}'
+                if os.path.exists(dir1_loop):
+                    print(dir1_loop)
+                    shutil.copy(dir1_loop, self.gen_backupdir_path)
+                    tempdir1_list.append(dir1_loop)
+                else:
+                    print(f"error at {dir1_loop}")
+
+            if len(tempdir1_list) == len(self.dir1_filelist):
                 self.status = True
             else:
                 self.status = False
@@ -56,46 +129,44 @@ class BackupFiles:
             print("Failed to generate")
 
         if self.status:
-            req_file_2[0] = f"{dict_dir_path}\\{req_file_2[0]}"
-            shutil.copy(req_file_2[0], generated_folder_loc)
+            self.status = False
+            for dir2_loop in self.dir2_filelist:
+                dir2_loop = f'{self.req_dir2_path}\\{dir2_loop}'
+                if os.path.exists(dir2_loop):
+                    print(dir2_loop)
+                    shutil.copy(dir2_loop, self.gen_backupdir_path)
+                else:
+                    print(f"error at {dir2_loop}")
 
-        indi_files = fnmatch.filter(os.listdir(generated_folder_loc), '*.con')
-        dict_file = fnmatch.filter(os.listdir(generated_folder_loc), '*.py')
-        count_files = len(indi_files + dict_file)
-
-        # print(f"type {type(generated_folder)} content {generated_folder}")
-        # print(
-        #     f"type {type(generated_folder_loc)} content {generated_folder_loc}")
-        # print(f"type {type(indi_files)} content {indi_files}")
-        # print(f"type {type(dict_file)} content {dict_file}")
-        # print(f"type {type(count_files)} content {count_files}")
-        # print(f"type {type(req_file_1)} content {req_file_1}")
-        # print(f"type {type(req_file_2)} content {req_file_2}")
-        # print(f"type {type(req_temp_list)} content {req_temp_list}")
-        print(dir_path)
-        print(f"{generated_folder_loc}")
-
-        if count_files == 8:
-            succes = self.compress_files(dir_path, generated_folder_loc, temp)
-            # if succes:
-            #     print("succes")
-            # else:
-            #     print("failed")
+            if len(tempdir2_list) == len(self.dir2_filelist):
+                self.status = True
+            else:
+                self.status = False
         else:
-            print(f"Required file missing")
+            print("goddam")
 
-    def compress_files(self, output_dir, dir_name, del_dir):
-        shutil.make_archive(output_dir, 'zip', dir_name)
-        # if not os.path.exists(output_dir):
-        #     return False
-        # else:
-        # if not os.path.exists(f"{dir_name}"):
-        #     return False
-        # else:
-        shutil.rmtree(del_dir)
-        #     return True
-        # return True
+    def compress_files(self, backup_filename, backup_dirsource):
+        shutil.make_archive(backup_filename, 'zip',
+                            backup_dirsource)
+
+        temp_list1 = fnmatch.filter(os.listdir(
+            self.backup_dir_path), '*.zip')
+
+        temp_list2 = os.listdir(self.temp_dir_path)
+        print(temp_list2)
+
+        for temp_listitem in temp_list1:
+            print(temp_listitem)
+            if temp_listitem == f'{self.backup_filename}.zip':
+                print("exist fafaffafa")
+                status = True
+
+        if status:
+            shutil.rmtree(self.temp_dir_path)
+            return True
+        else:
+            return False
 
 
-x = BackupFiles()
-print(x.init('backups', 'HUD\\HudSetup\\Killtext', 'game'))
+x = BackupFiles('HUD\\HudSetup\\Killtext', 'game')
+print(x)
