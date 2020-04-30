@@ -3,6 +3,6 @@
 .vscode
 temp
 backups
-/HUD
-game\weapons.py
+HUD/
+game/
 __pycache__
