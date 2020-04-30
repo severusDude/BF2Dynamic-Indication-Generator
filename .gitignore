@@ -4,5 +4,5 @@
 temp
 backups
 HUD\HudSetup\Killtext\*.con
-game\*.py
+game\weapons.py
 __pycache__
