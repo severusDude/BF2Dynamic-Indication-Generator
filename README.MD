@@ -9,11 +9,9 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 ### Instruction
 1. Go to release page
 2. Download the lastest release(**Crypter.exe**)
-3. Place it on a directory alongside with see ***Structure***
+3. Place it on a directory alongside with [**Structure**](https://github.com/severusDude/BF2Dynamic-Indication-Generator#structure)
 4. Run the file
-5. Fill all the input correspond to your wanted\
-   **warning**\
-   see ***Weapon Index fill***
+5. Fill all the input correspond to your wanted with inputting weapon index follow the rule [**Weapon index fill**](https://github.com/severusDude/BF2Dynamic-Indication-Generator#weapon-index-fill)
 6. Press the generate button
 7. Pray it work
 
@@ -21,10 +19,13 @@ Handy tool that automatically generate required AGM114D Dynamic Indication mod s
 To fill weapon index there is certain guide
 1. see your weapons.py and go to the most bottom.
 2. if you have standard weapons.py *(not changed)* the most bottom should be\
-   "tnk_type98"         : 160,		 # ZTZ98 MBT.
-3. as you can tell, tnk_type98 have number of 160, the number should be the highest since it placed on the most bottom.
+   `"tnk_type98"         : 160,		 # ZTZ98 MBT`
+3. as you can tell, tnk_type98 have number of 160, this number should be the highest since it placed on the most bottom.
 4. but i advise to search the highest number possible
 5. after you have found it, the weapon index you should be input is 1 value larger.
+   
+**Note**\
+The program will really appreciate you if everytime the index you generate is in order, not with random number
 
 ### Structure
 Place the **Crypter.exe** inside directory with structure like shown below
@@ -75,5 +76,5 @@ and install the qdarkstyle stylesheet by using\
 * [severusDude](https://github.com/severusDude) - Bluenix_Indo(ModDB)
 
 ## License
-This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/LICENSE) file for details
+This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) License - see the [LICENSE.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/LICENSE) file for details
 
