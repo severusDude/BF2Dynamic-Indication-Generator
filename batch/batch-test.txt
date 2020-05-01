@@ -1,0 +1,5 @@
+activate
+[ACR] (bf4_acr)
+[M4] (bf4_m4)
+[REPAIR TOOL] (repair_tool)
+[MP5] (silenced_mp5)
