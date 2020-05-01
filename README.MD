@@ -95,10 +95,10 @@ and install the qdarkstyle stylesheet by using\
 *This project made with python version 3.7.2*
 
 ## Credit
-* [Leeberty](https://www.moddb.com/members/leeberty) - Author of [Dynamic indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released)
+* [Leeberty](https://www.moddb.com/members/leeberty) - Original author of [Dynamic indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released)
 
 ## Author
-* [severusDude](https://github.com/severusDude)/[Bluenix_indo(ModDB)](https://www.moddb.com/members/bluenix-indo) - Original Author
+* [severusDude](https://github.com/severusDude)/[Bluenix_indo(ModDB)](https://www.moddb.com/members/bluenix-indo) - Original author
 
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) License - see the [LICENSE.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/LICENSE) file for details
