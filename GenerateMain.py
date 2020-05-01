@@ -1,11 +1,13 @@
-from PyQt5 import QtCore, QtGui, QtWidgets
-from Generate import *
-from generateindication import *
-from generatedictionary import *
-from backup import *
-import qdarkstyle
 import sys
 import os
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+import qdarkstyle
+
+from Generate import *
+from backup import *
+from generateindication import *
+from generatedictionary import *
 
 
 class ControlMainWindow(QtWidgets.QMainWindow):
