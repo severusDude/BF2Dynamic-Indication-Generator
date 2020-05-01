@@ -24,9 +24,12 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.f2_status = bool()
         self.f3_status = bool()
         self.all_fstatus = bool()
-        self.backup_path = 'backups'
-        self.indi_path = 'HUD\\HudSetup\\Killtext'
-        self.dict_path = 'game'
+        self.OPEN_MODE = 'r'
+        self.BACKUP_PATH = 'backups'
+        self.INDI_PATH = 'HUD\\HudSetup\\Killtext'
+        self.DICT_PATH = 'game'
+        self.INDEX_START = 1
+        self.INDEX_END = 7
 
         # send input values into declared variables
         self.main_ui.weapon_index_input.textChanged.connect(
@@ -48,7 +51,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             # action if all required file is checked and exist
             if self.f1_status == True and self.f2_status == True and self.f3_status == True:
                 limit = 5
-                if BackupFiles(self.indi_path, self.dict_path, limit).compress_succes:
+                if BackupFiles(self.INDI_PATH, self.DICT_PATH, limit).compress_succes:
                     self.gen_indi.init(self.wep_index)
                     self.gen_dict.init(
                         self.wep_name, self.wep_index, self.wep_indi)
@@ -57,6 +60,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                 else:
                     QtWidgets.QMessageBox.critical(
                         self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
+                print("not ready")
 
         else:
             QtWidgets.QMessageBox.warning(
@@ -65,20 +69,17 @@ class ControlMainWindow(QtWidgets.QMainWindow):
     # start checking required files
     def start_check(self):
         # required files location
-        att_wep = "HUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con"
-        wep_dict = "game\\weapons.py"
+        att_wep = f'{self.INDI_PATH}\\HudElementsAttackerWeapon.con'
+        wep_dict = f"{self.DICT_PATH}\\weapons.py"
 
-        read_file = 'r+'
-
-        index_start = 1
-        index_end = 7
         index_list = list()
-        index_listed = [temp for temp in range(index_start, index_end)]
+        index_listed = [temp for temp in range(
+            self.INDEX_START, self.INDEX_END)]
 
         # check HudElementsIndication1-6.con files
-        for page in range(index_start, index_end):
+        for page in range(self.INDEX_START, self.INDEX_END):
             indi_files = f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con'
-            if self.check_file(indi_files, read_file):
+            if self.check_file(indi_files):
                 index_list.append(page)
             else:
                 print(f"error at HudElementsIndication{page}.con")
@@ -91,7 +92,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.f1_status = False
 
         # check HudElementsAttackerWeapon.con
-        if self.check_file(att_wep, read_file):
+        if self.check_file(att_wep):
             self.f2_status = True
         else:
             self.f2_status = False
@@ -99,20 +100,21 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                 self, "Error FNE_B_2", f"Error code: B_2\n\nRequired file is missing:\n\tHUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con")
 
         # check weapons.py file
-        if self.check_file(wep_dict, read_file):
+        if self.check_file(wep_dict):
             self.f3_status = True
         else:
             self.f3_status = False
             QtWidgets.QMessageBox.critical(
                 self, "Error FNE_C_3", "Error code: C_1\n\nRequired file is missing:\n\tgame\\weapons.py")
 
-    def check_file(self, file, open_mode):
-        try:
-            with open(file, open_mode) as file_read:
-                return True
-        except FileNotFoundError as e:
-            print(
-                f"Exception FileNotFoundError\nOpened file: {file}\nOriginal: {e}")
+        print(self.f1_status)
+        print(self.f2_status)
+        print(self.f3_status)
+
+    def check_file(self, file_path):
+        if os.path.exists(file_path):
+            return True
+        else:
             return False
 
     # get weapon index from user input
