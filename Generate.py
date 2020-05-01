@@ -92,4 +92,9 @@ class UserInterface(QtWidgets.QMainWindow):
         self.gen_button.setText("GENERATE")
         self.gen_button.setFont(self.button_font)
 
+        self.batch_button = QtWidgets.QPushButton(self.centralWidget)
+        self.batch_button.setGeometry(QtCore.QRect(140, 255, 125, 35))
+        self.batch_button.setText("BATCH")
+        self.batch_button.setFont(self.button_font)
+
         MainWindow.setCentralWidget(self.centralWidget)
