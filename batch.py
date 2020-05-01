@@ -6,17 +6,18 @@ import re
 
 class BatchProcessing:
     def __init__(self, file_path):
-        self.file_path = file_path
+        self.FILE_PATH = file_path
         self.file_exist = bool()
         self.is_active = bool()
-        self.contents = list()
-        self.name_bracket = r'\[.*?\]'
-        self.file_bracket = r'\(.*?\)'
-        self.open_mode = 'r'
-        self.activation_key = "activate"
+        self.file_contents = list()
+        self.NAME_PATTERN = r'\[.*?\]'
+        self.KEY_PATTERN = r'\(.*?\)'
+        self.OPEN_MODE = 'r'
+        self.ACTIVATION_KEY = "activate"
 
         self.init()
 
+    # start the whole system
     def init(self):
 
         self.find_file()
@@ -26,29 +27,33 @@ class BatchProcessing:
             if self.is_active:
                 print("file meet requirment")
                 self.find_name()
+                self.find_key()
             else:
                 print("file not meet requirment")
 
         else:
             print("failed, file not exist")
 
+    # check the inputed file was exist
     def find_file(self):
-        if os.path.exists(self.file_path):
+        if os.path.exists(self.FILE_PATH):
             self.file_exist = True
 
-            with open(self.file_path, self.open_mode) as f:
+            with open(self.FILE_PATH, self.OPEN_MODE) as f:
                 self.check_file(f.readlines())
 
         else:
             self.file_exist = False
 
+    # check if file meet requirments
     def check_file(self, contents):
         print(contents)
-        self.contents = contents
-        key = self.contents[0]
+        self.file_contents = contents
+        key = self.file_contents[0]
         key = key.replace('\n', '')
+        print(self.file_contents)
 
-        if key == self.activation_key:
+        if key == self.ACTIVATION_KEY:
             self.is_active = True
             print("batch file is active")
 
@@ -56,29 +61,30 @@ class BatchProcessing:
             self.is_active = False
             print("batch file is passive")
 
+    # find indication name
     def find_name(self):
-        for item in self.contents:
+        for item in self.file_contents:
             item = item.replace('\n', '')
-            print(f"\n{item}")
+            # print(f"\n{item}")
 
-            find_name = re.finditer(r'\[.*?\]', item)
+            find_name = re.finditer(self.NAME_PATTERN, item)
 
             for item in find_name:
+                item = item.group(0)
                 print(item)
 
+    # find indication key
+    def find_key(self):
+        for item in self.file_contents:
+            item = item.replace('\n', '')
+            # print(f"\n{item}")
 
-text = """
-[SCAR SV] (bf4_scar_sv)
-[ACR] (bf4_acr)
-"""
+            find_key = re.finditer(self.KEY_PATTERN, item)
 
-output_file = re.finditer(r'\[.*?\]', text)
-req_file = re.finditer(r'\(.*?\)', text)
-for output_filename in output_file:
-    print(output_filename)
+            for item in find_key:
+                item = item.group(0)
+                print(item)
 
-for req_filename in req_file:
-    print(req_filename)
 
 x = BatchProcessing('batch\\batch-test.txt')
 print(x)
