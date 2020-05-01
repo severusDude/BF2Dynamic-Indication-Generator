@@ -1,8 +1,8 @@
-# AGM114D Dynamic Indication script generator
+# [AGM114D Dynamic Indication](https://www.moddb.com/mods/dynamic-indication-v40-released) script generator
 
 ![app_example](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "App image")
 
-Handy tool that automatically generate required AGM114D Dynamic Indication mod script, such as:
+Handy tool that automatically generate required [AGM114D Dynamic Indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released) script, such as:
 * **HudElementsIndication1-6.con**
 * **HudElementsAttackerWeapon.con**
 * **weapons.py**
@@ -70,6 +70,8 @@ Place the **Crypter.exe** inside directory with structure like shown below
 ### Known issue
 * Program break if weapon index inputed does not stack, this is due to the way generating dictionary item\
   *Example: from index 160 to 234*
+<!-- * No backup will be generated if generate multiple time on the same time without using batch option
+  *Example: generate two times at 11:14* -->
 
 
 
@@ -92,8 +94,11 @@ and install the qdarkstyle stylesheet by using\
 **NOTE**  
 *This project made with python version 3.7.2*
 
+## Credit
+* [Leeberty](https://www.moddb.com/members/leeberty) - Author of [Dynamic indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released)
+
 ## Author
-* [severusDude](https://github.com/severusDude) - Bluenix_Indo(ModDB)
+* [severusDude](https://github.com/severusDude)/[Bluenix_indo(ModDB)](https://www.moddb.com/members/bluenix-indo) - Original Author
 
 ## License
 This project is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html) License - see the [LICENSE.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/LICENSE) file for details
