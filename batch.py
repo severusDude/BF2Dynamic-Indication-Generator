@@ -7,15 +7,20 @@ import re
 class BatchProcessing:
     def __init__(self, file_path):
         self.FILE_PATH = file_path
-        self.file_exist = bool()
-        self.is_active = bool()
-        self.file_contents = list()
         self.NAME_PATTERN = r'\[.*?\]'
         self.KEY_PATTERN = r'\(.*?\)'
         self.OPEN_MODE = 'r'
         self.ACTIVATION_KEY = "activate"
+        self.REMOVE_CHAR = ["[", "]", "(", ")"]
+        self.file_exist = bool()
+        self.is_active = bool()
+        self.file_contents = list()
+        self.name_items = list()
+        self.key_items = list()
 
         self.init()
+        print(self.name_items)
+        print(self.key_items)
 
     # start the whole system
     def init(self):
@@ -71,6 +76,12 @@ class BatchProcessing:
 
             for item in find_name:
                 item = item.group(0)
+
+                for char in self.REMOVE_CHAR:
+                    if char in item:
+                        item = item.replace(char, '')
+
+                self.name_items.append(item)
                 print(item)
 
     # find indication key
@@ -83,6 +94,11 @@ class BatchProcessing:
 
             for item in find_key:
                 item = item.group(0)
+
+                for char in self.REMOVE_CHAR:
+                    if char in item:
+                        item = item.replace(char, '')
+                self.key_items.append(item)
                 print(item)
 
 
