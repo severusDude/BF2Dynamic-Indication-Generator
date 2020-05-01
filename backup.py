@@ -6,14 +6,13 @@ import os
 
 class BackupFiles:
     def __init__(self, req_dir1_path, req_dir2_path, backup_fileslimit):
-        self.backup_dir_path = 'backups'
-        self.temp_dir_path = 'temp'
-        self.backup_fileslimit = backup_fileslimit
-        self.dir1_filetype = '*.con'
-        self.dir2_filetype = '*.py'
-        self.backup_filetype = '*.zip'
-        self.req_dir1_path = req_dir1_path
-        self.req_dir2_path = req_dir2_path
+        self.BACKUP_DIR_PATH = 'backups'
+        self.TEMP_DIR_PATH = 'temp'
+        self.BACKUP_FILESLIMIT = backup_fileslimit
+        self.DIR1_FILETYPE = '*.con'
+        self.DIR2_FILETYPE = '*.py'
+        self.REQ_DIR1_PATH = req_dir1_path
+        self.REQ_DIR2_PATH = req_dir2_path
         self.dir1_filelist = list()
         self.dir2_filelist = list()
         self.backup_files = list()
@@ -29,42 +28,42 @@ class BackupFiles:
         self.backup_filename = f'Backup_{self.current_time}'
         # output will be Backup_(day)-(month)-(year) (hour).(minute)
 
-        self.gen_backupfile_path = f'{self.backup_dir_path}\\{self.backup_filename}'
+        self.gen_backupfile_path = f'{self.BACKUP_DIR_PATH}\\{self.backup_filename}'
         # output will be backups\Backup_(current_time)
 
-        self.gen_backupdir_path = f'{self.temp_dir_path}\\{self.backup_filename}'
+        self.gen_backupdir_path = f'{self.TEMP_DIR_PATH}\\{self.backup_filename}'
         # output will be temp\Backup_(current_time)
 
-        if len(self.req_dir1_path) and len(self.req_dir2_path) > 0:
+        if len(self.REQ_DIR1_PATH) and len(self.REQ_DIR2_PATH) > 0:
             self.init()
 
     # start the whole system
     def init(self):
-        if not os.path.exists(self.backup_dir_path):
-            os.makedirs(self.backup_dir_path)
+        if not os.path.exists(self.BACKUP_DIR_PATH):
+            os.makedirs(self.BACKUP_DIR_PATH)
 
         self.backup_files = fnmatch.filter(
-            os.listdir(self.backup_dir_path), '*.zip')
+            os.listdir(self.BACKUP_DIR_PATH), '*.zip')
         self.backup_files_count = len(self.backup_files)
 
-        if self.backup_files_count > self.backup_fileslimit:
-            os.remove(f"{self.backup_dir_path}\\{self.backup_files[0]}")
+        if self.backup_files_count > self.BACKUP_FILESLIMIT:
+            os.remove(f"{self.BACKUP_DIR_PATH}\\{self.backup_files[0]}")
 
         self.listing_files()
 
     # list files that are inside given directiories
     def listing_files(self):
         self.dir1_filelist = fnmatch.filter(os.listdir(
-            self.req_dir1_path), self.dir1_filetype)
+            self.REQ_DIR1_PATH), self.DIR1_FILETYPE)
         self.dir2_filelist = fnmatch.filter(os.listdir(
-            self.req_dir2_path), self.dir2_filetype)
+            self.REQ_DIR2_PATH), self.DIR2_FILETYPE)
 
         self.copy_file()
 
         filelist_type1 = fnmatch.filter(os.listdir(
-            self.gen_backupdir_path), self.dir1_filetype)
+            self.gen_backupdir_path), self.DIR1_FILETYPE)
         filelist_type2 = fnmatch.filter(os.listdir(
-            self.gen_backupdir_path), self.dir2_filetype)
+            self.gen_backupdir_path), self.DIR2_FILETYPE)
         count_files = len(filelist_type1) + len(filelist_type2)
 
         if count_files == 8:
@@ -76,12 +75,12 @@ class BackupFiles:
     # copy listed files into a temporary backup folder
     def copy_file(self):
 
-        if not os.path.exists(self.temp_dir_path):
-            os.makedirs(self.temp_dir_path)
+        if not os.path.exists(self.TEMP_DIR_PATH):
+            os.makedirs(self.TEMP_DIR_PATH)
         if not os.path.exists(self.gen_backupdir_path):
             os.makedirs(self.gen_backupdir_path)
 
-        self.temp_dirs = os.listdir(self.temp_dir_path)
+        self.temp_dirs = os.listdir(self.TEMP_DIR_PATH)
         self.temp_dirs_count = len(self.temp_dirs)
 
         tempdir1_list = list()
@@ -89,7 +88,7 @@ class BackupFiles:
 
         try:
             for dir1_loop in self.dir1_filelist:
-                dir1_loop = f'{self.req_dir1_path}\\{dir1_loop}'
+                dir1_loop = f'{self.REQ_DIR1_PATH}\\{dir1_loop}'
                 if os.path.exists(dir1_loop):
                     shutil.copy(dir1_loop, self.gen_backupdir_path)
                     tempdir1_list.append(dir1_loop)
@@ -107,7 +106,7 @@ class BackupFiles:
         if self.status:
             self.status = False
             for dir2_loop in self.dir2_filelist:
-                dir2_loop = f'{self.req_dir2_path}\\{dir2_loop}'
+                dir2_loop = f'{self.REQ_DIR2_PATH}\\{dir2_loop}'
                 if os.path.exists(dir2_loop):
                     shutil.copy(dir2_loop, self.gen_backupdir_path)
                 else:
@@ -133,7 +132,7 @@ class BackupFiles:
             gen_succes = False
 
         if gen_succes:
-            shutil.rmtree(self.temp_dir_path)
+            shutil.rmtree(self.TEMP_DIR_PATH)
             return True
         else:
             return False
