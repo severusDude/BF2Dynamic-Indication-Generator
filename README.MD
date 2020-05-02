@@ -1,6 +1,6 @@
 # [AGM114D Dynamic Indication](https://www.moddb.com/mods/dynamic-indication-v40-released) script generator
 
-![app_example](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "App image")
+![app preview](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/v1.1.2-beta/common/images/beta1.0.0%20preview.png "App Preview")
 
 Handy tool that automatically generate required [AGM114D Dynamic Indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released) script, such as:
 * **HudElementsIndication1-6.con**
@@ -27,10 +27,10 @@ Handy tool that automatically generate required [AGM114D Dynamic Indication mod]
    
 ### Example
 **Your input should look like this**\
-![fill_inputfield](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0.png "Input examples")
+![fill_inputfield](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/v1.1.2-beta/common/images/beta1.0.0%20fill%20input.png "Input examples")
 
 **After succesfull generating**\
-![succes_generate](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/alpha1.0.0%20generate%20succes.png "Succesfull generate")
+![succes_generate](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/v1.1.2-beta/common/images/beta1.0.0%20succes%20generate.png "Succesfull generate")
 
 
 
