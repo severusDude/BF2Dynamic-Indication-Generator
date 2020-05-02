@@ -1,5 +1,6 @@
 import sys
 import os
+import webbrowser
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import qdarkstyle
@@ -51,10 +52,14 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.gen_button.clicked.connect(self.gen_button_act)
 
         # open a batch set
-        self.main_ui.choose_batchfile.clicked.connect(self.open_file)
+        self.main_ui.choose_batchfile.clicked.connect(self.open_batchfile)
 
         # start batch from opened batch set
         self.main_ui.start_batch.clicked.connect(self.start_batch)
+
+        # batch processing guide
+        self.main_ui.batch_guide.clicked.connect(
+            lambda: webbrowser.open_new_tab('https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file'))
 
         # page switcher
         self.main_ui.single_button.clicked.connect(
@@ -73,7 +78,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.main_ui.selected_option.setText(self.OPTION_2)
 
     # open batch file
-    def open_file(self):
+    def open_batchfile(self):
         options = QtWidgets.QFileDialog.Options()
         options |= QtWidgets.QFileDialog.DontUseNativeDialog
         filename, _ = QtWidgets.QFileDialog.getOpenFileName(
@@ -266,7 +271,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.main_ui.start_batch.setDisabled(True)
 
     # defining system exception
-
     def log_uncaught_exceptions(self, ex_cls, ex, tb):
         text = '{}: {}:\n'.format(ex_cls.__name__, ex)
         import traceback
