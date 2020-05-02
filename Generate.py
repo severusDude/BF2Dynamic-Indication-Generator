@@ -160,6 +160,19 @@ class UserInterface(QtWidgets.QMainWindow):
         self.batch_active.setFont(font)
         self.batch_active.setText("No file is selected")
 
+        # index_start input label
+        self.index_label = QtWidgets.QLabel(self.batch_genpage)
+        self.index_label.setGeometry(QtCore.QRect(10, 185, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.index_label.setFont(font)
+        self.index_label.setText("Start index")
+        self.index_label.setDisabled(True)
+
+        # label console
         self.console_label = QtWidgets.QLabel(self.batch_genpage)
         self.console_label.setGeometry(QtCore.QRect(10, 290, 155, 25))
         font = QtGui.QFont()
@@ -171,7 +184,7 @@ class UserInterface(QtWidgets.QMainWindow):
         self.console_label.setText("Console Log")
 
         # BUTTONS
-        # choose file buttons
+        # choose file button
         self.choose_batchfile = QtWidgets.QPushButton(self.batch_genpage)
         self.choose_batchfile.setGeometry(QtCore.QRect(10, 120, 125, 35))
         self.choose_batchfile.setFont(self.button_font)
@@ -180,14 +193,38 @@ class UserInterface(QtWidgets.QMainWindow):
         self.choose_batchfile.setText("OPEN FILE")
         self.choose_batchfile.setIcon(icon)
 
-        self.log_window = QtWidgets.QListWidget(self.batch_genpage)
-        self.log_window.setGeometry(QtCore.QRect(10, 315, 480, 125))
+        # start batch button
+        self.start_batch = QtWidgets.QPushButton(self.batch_genpage)
+        self.start_batch.setGeometry(QtCore.QRect(10, 255, 125, 35))
+        self.start_batch.setFont(self.button_font)
+        self.start_batch.setText("START BATCH")
+        self.start_batch.setDisabled(True)
+
+        # INPUTs
+        # index_start
+        self.index_start = QtWidgets.QLineEdit(self.batch_genpage)
+        self.index_start.setGeometry(QtCore.QRect(10, 215, 45, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
         font.setBold(False)
         font.setWeight(55)
-        self.log_window.setFont(font)
+        self.index_start.setToolTip(
+            "Starting index of your batch set, ex: 161")
+        self.index_start.setFont(font)
+        self.index_start.setValidator(self.only_int)
+        self.index_start.setDisabled(True)
+
+        # Console
+        # console window
+        self.console_window = QtWidgets.QListWidget(self.batch_genpage)
+        self.console_window.setGeometry(QtCore.QRect(10, 315, 480, 125))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(55)
+        self.console_window.setFont(font)
 
         MainWindow.setCentralWidget(self.centralWidget)
 
