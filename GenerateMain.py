@@ -36,6 +36,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.ACTIVATION_KEY = "activate"
         self.INDEX_START = 1
         self.INDEX_END = 7
+        self.BACKUP_FILELIMIT = 5
 
         # send input values into declared variables
         self.main_ui.weapon_index_input.textChanged.connect(
@@ -48,7 +49,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
         # connect gen_button to gen_button_act function
         self.main_ui.gen_button.clicked.connect(self.gen_button_act)
-        self.main_ui.gen_button.setDisabled(True)
 
         # open a batch set
         self.main_ui.choose_batchfile.clicked.connect(self.open_file)
@@ -110,18 +110,15 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
             self.main_ui.index_start.setDisabled(False)
             self.main_ui.index_label.setDisabled(False)
-            self.main_ui.start_batch.setDisabled(False)
 
-            batchset_items = BatchProcessing(
+            self.batchset_items = BatchProcessing(
                 self.batch_contents, self.is_active)
 
             self.main_ui.console_window.addItem(
-                f"Found {len(batchset_items.items)} valid items from batch set:")
+                f"Found {len(self.batchset_items.items)} valid items from batch set:")
 
-            for item in batchset_items.items:
+            for item in self.batchset_items.items:
                 self.main_ui.console_window.addItem(f"    {item}")
-
-            # print(batchset_items)
 
         else:
 
@@ -130,8 +127,31 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.main_ui.batch_active.adjustSize()
 
     def start_batch(self):
-        x = self.batchset_index
-        self.main_ui.console_window.addItem(x)
+
+        # get name items
+        self.batch_itemcount = len(self.batchset_items.items)
+        last_index = self.batchset_index + self.batch_itemcount
+        name_list = self.batchset_items.name_items
+        key_list = self.batchset_items.key_items
+
+        count_index = self.batchset_index
+
+        if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
+
+            # generate indication from batch set
+            for item in range(self.batchset_index, last_index):
+                self.gen_indi.init(item)
+                self.main_ui.console_window.addItem(
+                    f"Added index {item} into Indication Files")
+
+            for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
+                self.gen_dict.init(item_key, item_index, item_name)
+                self.main_ui.console_window.addItem(
+                    f"Added {item_key} as {item_name} with index of {item_index}")
+
+        else:
+            QtWidgets.QMessageBox.critical(
+                self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
 
     # start the whole system
     def gen_button_act(self):
@@ -141,8 +161,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
             # action if all required file is checked and exist
             if self.f1_status == True and self.f2_status == True and self.f3_status == True:
-                limit = 5
-                if BackupFiles(self.INDI_PATH, self.DICT_PATH, limit).compress_succes:
+                if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
                     self.gen_indi.init(self.wep_index)
                     self.gen_dict.init(
                         self.wep_name, self.wep_index, self.wep_indi)
@@ -159,6 +178,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     # start checking required files
     def start_check(self):
+
         # required files location
         att_wep = f'{self.INDI_PATH}\\HudElementsAttackerWeapon.con'
         wep_dict = f"{self.DICT_PATH}\\weapons.py"
@@ -213,7 +233,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     # get weapon index from user input
     def weapon_index_act(self, value):
-        self.main_ui.gen_button.setDisabled(False)
         if len(value) > 0:
             self.wep_index = value
             self.wep_index = int(self.wep_index)
@@ -223,7 +242,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     # get weapon name from user input
     def weapon_name_act(self, value):
-        self.main_ui.gen_button.setDisabled(False)
         if len(value) > 0:
             self.wep_name = value
             print(self.wep_name)
@@ -232,7 +250,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     # get weapon indication from user input
     def weapon_indi_act(self, value):
-        self.main_ui.gen_button.setDisabled(False)
         if len(value) > 0:
             self.wep_indi = value
             print(self.wep_indi)
@@ -242,10 +259,11 @@ class ControlMainWindow(QtWidgets.QMainWindow):
     # get starting batch set index from user input
     def get_index_start(self, value):
         if len(value) > 0:
-            self.batchset_index = value
+            self.main_ui.start_batch.setDisabled(False)
+            self.batchset_index = int(value)
             print(self.batchset_index)
         else:
-            None
+            self.main_ui.start_batch.setDisabled(True)
 
     # defining system exception
 
