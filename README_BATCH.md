@@ -32,7 +32,7 @@
 4. If the text next to the button say\
    ```Batch file is active```\
    you can then continue
-5. If it say otherwise, please check [batch set file requirment]()
+5. If it say otherwise, please check [batch set file requirment](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file)
 6. Before generating, you need to fill **STARTING INDEX** input
 7. The input will be a starting point for the index
 8. Please see the [rules](https://github.com/severusDude/BF2Dynamic-Indication-Generator#weapon-index-fill) to fill the input
