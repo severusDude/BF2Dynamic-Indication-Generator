@@ -43,13 +43,21 @@ class UserInterface(QtWidgets.QMainWindow):
         }
         """
 
-        # LABELS
         # generate option labels
         self.gen_option = QtWidgets.QLabel(self.centralWidget)
         self.gen_option.setGeometry(QtCore.QRect(10, 5, 200, 35))
         self.gen_option.setFont(self.label_font)
         self.gen_option.setText("GENERATE OPTION:")
         self.gen_option.setStyleSheet(self.label_style)
+
+        # batch page button
+        self.batch_button = QtWidgets.QPushButton(self.centralWidget)
+        self.batch_button.setGeometry(QtCore.QRect(140, 45, 125, 35))
+        icon = QtGui.QIcon()
+        icon.addFile('common\\icons\\batch.ico')
+        self.batch_button.setFont(self.button_font)
+        self.batch_button.setIcon(icon)
+        self.batch_button.setText("BATCH")
 
         # selected generate option
         self.selected_option = QtWidgets.QLabel(self.centralWidget)
@@ -58,26 +66,35 @@ class UserInterface(QtWidgets.QMainWindow):
         self.selected_option.setText("SINGLE GENERATION")
         self.selected_option.setStyleSheet(self.label_style)
 
+        # single generation page button
+        self.single_button = QtWidgets.QPushButton(self.centralWidget)
+        self.single_button.setGeometry(QtCore.QRect(10, 45, 125, 35))
+        icon = QtGui.QIcon()
+        icon.addFile('common\\icons\\generate.ico')
+        self.single_button.setFont(self.button_font)
+        self.single_button.setIcon(icon)
+        self.single_button.setText("SINGLE")
+
+        ### PAGE 1 ###
+
+        # LABELS
         # weapon index label
         self.weapon_index = QtWidgets.QLabel(self.single_genpage)
         self.weapon_index.setGeometry(QtCore.QRect(10, 80, 155, 35))
         self.weapon_index.setText("WEAPON INDEX")
         self.weapon_index.setFont(self.label_font)
-        self.weapon_index.setStyleSheet(self.label_style)
 
         # weapon name label
         self.weapon_name = QtWidgets.QLabel(self.single_genpage)
         self.weapon_name.setGeometry(QtCore.QRect(10, 155, 155, 35))
         self.weapon_name.setText("WEAPON NAME")
         self.weapon_name.setFont(self.label_font)
-        self.weapon_name.setStyleSheet(self.label_style)
 
         # weapon indication label
         self.weapon_indi = QtWidgets.QLabel(self.single_genpage)
         self.weapon_indi.setGeometry(QtCore.QRect(10, 230, 200, 35))
         self.weapon_indi.setText("WEAPON INDICATION")
         self.weapon_indi.setFont(self.label_font)
-        self.weapon_indi.setStyleSheet(self.label_style)
 
         # INPUTS
         # weapon index input
@@ -98,9 +115,10 @@ class UserInterface(QtWidgets.QMainWindow):
         self.weapon_indi_input.setGeometry(QtCore.QRect(10, 270, 365, 35))
         self.weapon_indi_input.setPlaceholderText("Example: M4")
         self.weapon_indi_input.setFont(self.input_font)
-        self.weapon_indi_input.setMaxLength(7)
+        # self.weapon_indi_input.setMaxLength(7)
 
         # BUTTONS
+        # generate button
         self.gen_button = QtWidgets.QPushButton(self.single_genpage)
         self.gen_button.setGeometry(QtCore.QRect(10, 315, 125, 35))
         icon = QtGui.QIcon()
@@ -109,15 +127,42 @@ class UserInterface(QtWidgets.QMainWindow):
         self.gen_button.setText("GENERATE")
         self.gen_button.setFont(self.button_font)
 
-        self.single_button = QtWidgets.QPushButton(self.centralWidget)
-        self.single_button.setGeometry(QtCore.QRect(10, 45, 125, 35))
-        self.single_button.setText("SINGLE")
-        self.single_button.setFont(self.button_font)
+        ### PAGE 2 ###
 
-        self.batch_button = QtWidgets.QPushButton(self.centralWidget)
-        self.batch_button.setGeometry(QtCore.QRect(140, 45, 125, 35))
-        self.batch_button.setText("BATCH")
-        self.batch_button.setFont(self.button_font)
+        # LABELS
+        # file status label
+        self.batch_filepath = QtWidgets.QLabel(self.batch_genpage)
+        self.batch_filepath.setGeometry(QtCore.QRect(10, 160, 200, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(55)
+        stylesheet = """
+        QWidget {
+            background: gray solid;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+        """
+        self.batch_filepath.setFont(font)
+        self.batch_filepath.setStyleSheet(stylesheet)
+
+        self.batch_active = QtWidgets.QLabel(self.batch_genpage)
+        self.batch_active.setGeometry(QtCore.QRect(10, 190, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(70)
+        self.batch_active.setFont(font)
+
+        # BUTTONS
+        # choose file buttons
+        self.choose_batchfile = QtWidgets.QPushButton(self.batch_genpage)
+        self.choose_batchfile.setGeometry(QtCore.QRect(10, 120, 125, 35))
+        self.choose_batchfile.setFont(self.button_font)
+        self.choose_batchfile.setText("CHOOSE FILE")
 
         MainWindow.setCentralWidget(self.centralWidget)
 
