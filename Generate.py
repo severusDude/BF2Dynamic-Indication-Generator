@@ -145,11 +145,13 @@ class UserInterface(QtWidgets.QMainWindow):
             border-radius: 4px;
         }
         """
+        self.batch_filepath.setMaximumWidth(480)
         self.batch_filepath.setFont(font)
         self.batch_filepath.setStyleSheet(stylesheet)
 
+        # show requirment for selected batch file
         self.batch_active = QtWidgets.QLabel(self.batch_genpage)
-        self.batch_active.setGeometry(QtCore.QRect(10, 190, 155, 25))
+        self.batch_active.setGeometry(QtCore.QRect(140, 115, 155, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
@@ -157,6 +159,16 @@ class UserInterface(QtWidgets.QMainWindow):
         font.setWeight(60)
         self.batch_active.setFont(font)
         self.batch_active.setText("No file is selected")
+
+        self.console_label = QtWidgets.QLabel(self.batch_genpage)
+        self.console_label.setGeometry(QtCore.QRect(10, 290, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.console_label.setFont(font)
+        self.console_label.setText("Console Log")
 
         # BUTTONS
         # choose file buttons
@@ -167,6 +179,15 @@ class UserInterface(QtWidgets.QMainWindow):
         icon.addFile('common\\icons\\addfile.png')
         self.choose_batchfile.setText("OPEN FILE")
         self.choose_batchfile.setIcon(icon)
+
+        self.log_window = QtWidgets.QListWidget(self.batch_genpage)
+        self.log_window.setGeometry(QtCore.QRect(10, 315, 480, 125))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(55)
+        self.log_window.setFont(font)
 
         MainWindow.setCentralWidget(self.centralWidget)
 
