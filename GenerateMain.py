@@ -26,6 +26,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.f1_status = bool()
         self.f2_status = bool()
         self.f3_status = bool()
+        self.fs_status = bool()
         self.batch_contents = str()
         self.is_active = bool()
         self.OPTION_1 = "SINGLE GENERATE"
@@ -84,6 +85,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         filename, _ = QtWidgets.QFileDialog.getOpenFileName(
             self, "Open batch file", "", "*.txt", options=options)
         if filename:
+
             self.main_ui.batch_filepath.setText(filename)
             self.main_ui.batch_filepath.adjustSize()
             self.main_ui.console_window.addItem(f"Open batch set: {filename}")
@@ -133,30 +135,40 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     def start_batch(self):
 
-        # get name items
-        self.batch_itemcount = len(self.batchset_items.items)
-        last_index = self.batchset_index + self.batch_itemcount
-        name_list = self.batchset_items.name_items
-        key_list = self.batchset_items.key_items
+        self.start_check()
 
-        count_index = self.batchset_index
+        if self.fs_status:
 
-        if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
+            # get name items
+            self.batch_itemcount = len(self.batchset_items.items)
+            last_index = self.batchset_index + self.batch_itemcount
+            name_list = self.batchset_items.name_items
+            key_list = self.batchset_items.key_items
 
-            # generate indication from batch set
-            for item in range(self.batchset_index, last_index):
-                self.gen_indi.init(item)
-                self.main_ui.console_window.addItem(
-                    f"Added index {item} into Indication Files")
+            count_index = self.batchset_index
 
-            for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
-                self.gen_dict.init(item_key, item_index, item_name)
-                self.main_ui.console_window.addItem(
-                    f"Added {item_key} as {item_name} with index of {item_index}")
+            if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
 
+                # generate indication from batch set
+                for item in range(self.batchset_index, last_index):
+                    self.gen_indi.init(item)
+                    self.main_ui.console_window.addItem(
+                        f"Added index {item} into Indication Files")
+
+                for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
+                    self.gen_dict.init(item_key, item_index, item_name)
+                    self.main_ui.console_window.addItem(
+                        f"Added {item_key} as {item_name} with index of {item_index}")
+
+                QtWidgets.QMessageBox.information(
+                    self, "Batch Processing Succes", "Batch Processing is succes,\nplease re-examine the files before you moved theme to your mod")
+
+            else:
+                QtWidgets.QMessageBox.critical(
+                    self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
         else:
-            QtWidgets.QMessageBox.critical(
-                self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
+            QtWidgets.QMessageBox.warning(
+                self, "Error FI_1", "Required files are incomplete,\nGenerate is cancelled")
 
     # start the whole system
     def gen_button_act(self):
@@ -165,7 +177,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.start_check()
 
             # action if all required file is checked and exist
-            if self.f1_status == True and self.f2_status == True and self.f3_status == True:
+            if self.fs_status:
                 if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
                     self.gen_indi.init(self.wep_index)
                     self.gen_dict.init(
@@ -226,6 +238,11 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         print(self.f1_status)
         print(self.f2_status)
         print(self.f3_status)
+
+        if self.f1_status == True and self.f2_status == True and self.f3_status == True:
+            self.fs_status = True
+        else:
+            self.fs_status = False
 
     # checking wether input file is exist
     def check_file(self, file_path):
