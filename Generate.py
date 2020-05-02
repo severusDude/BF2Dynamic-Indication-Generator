@@ -154,15 +154,19 @@ class UserInterface(QtWidgets.QMainWindow):
         font.setFamily("Segoe UI")
         font.setPointSize(11)
         font.setBold(False)
-        font.setWeight(70)
+        font.setWeight(60)
         self.batch_active.setFont(font)
+        self.batch_active.setText("No file is selected")
 
         # BUTTONS
         # choose file buttons
         self.choose_batchfile = QtWidgets.QPushButton(self.batch_genpage)
         self.choose_batchfile.setGeometry(QtCore.QRect(10, 120, 125, 35))
         self.choose_batchfile.setFont(self.button_font)
-        self.choose_batchfile.setText("CHOOSE FILE")
+        icon = QtGui.QIcon()
+        icon.addFile('common\\icons\\addfile.png')
+        self.choose_batchfile.setText("OPEN FILE")
+        self.choose_batchfile.setIcon(icon)
 
         MainWindow.setCentralWidget(self.centralWidget)
 
