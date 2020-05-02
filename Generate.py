@@ -200,6 +200,17 @@ class UserInterface(QtWidgets.QMainWindow):
         self.start_batch.setText("START BATCH")
         self.start_batch.setDisabled(True)
 
+        # link to guide button
+        self.batch_guide = QtWidgets.QPushButton(self.batch_genpage)
+        self.batch_guide.setGeometry(QtCore.QRect(270, 42, 85, 35))
+        icon = QtGui.QIcon()
+        icon.addFile("common\\icons\\info.png")
+        self.batch_guide.setFont(self.button_font)
+        self.batch_guide.setIcon(icon)
+        self.batch_guide.setToolTip("Guide to make your own batch set or generate an existing one")
+        self.batch_guide.setText("GUIDE")
+
+
         # INPUTs
         # index_start
         self.index_start = QtWidgets.QLineEdit(self.batch_genpage)
