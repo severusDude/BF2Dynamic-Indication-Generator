@@ -1,5 +1,6 @@
 *.code-workspace
 *.exe
+*.spec
 .vscode
 build
 dist
