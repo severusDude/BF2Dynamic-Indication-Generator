@@ -9,6 +9,7 @@ class GenerateIndication:
     def indi1_act(self, index, file_index):
         try:
             with open(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{file_index}.con', 'r+') as f:
+                f.readlines()
                 self.write_indi(f, "kill", file_index, index)
 
         except FileNotFoundError as e:
@@ -20,6 +21,7 @@ class GenerateIndication:
     def indi2_act(self, index):
         try:
             with open(f'HUD\\HudSetup\\KillText\\HudElementsAttackerWeapon.con', 'r+') as f:
+                f.readlines()
                 self.write_indi(f, "dead", 0, index)
         except FileNotFoundError as e:
             print(f"Required AttackerWeapon file doesn't exist {e}")
