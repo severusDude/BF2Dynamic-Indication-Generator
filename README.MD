@@ -14,8 +14,11 @@ Handy tool that automatically generate required [AGM114D Dynamic Indication mod]
   * **weapons.py**\
   *it mean, you don't need to worry about write the required scripts anymore*
 * Automatic backup everytime you generate with limiter
+* [Batch Processing](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md)
  
 ## Usage
+### Batch Processing
+For more detail about batch processing, visti [README_BATCH.md](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md)
 ### Instruction
 1. Go to [release page](https://github.com/severusDude/BF2Dynamic-Indication-Generator/releases)
 2. Download the lastest release(**Crypter.exe**)
