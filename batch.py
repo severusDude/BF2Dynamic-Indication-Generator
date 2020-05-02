@@ -15,27 +15,39 @@ class BatchProcessing:
         self.file_exist = bool()
         self.name_items = list()
         self.key_items = list()
+        self.items = list()
 
         self.init()
         print(self.name_items)
         print(self.key_items)
+        print(self.items)
 
     # start the whole system
     def init(self):
 
-        # self.find_file()
-
         if self.ACTIVE:
             print("file meet requirment")
+            self.find_item()
             self.find_name()
             self.find_key()
         else:
             print("file not meet requirment")
 
-    def find_name(self):
+    def find_item(self):
         for item in self.file_contents:
             item = item.replace('\n', '')
-            # print(f"\n{item}")
+
+            find_item = re.finditer(
+                f'{self.NAME_PATTERN} {self.KEY_PATTERN}', item)
+
+            for item in find_item:
+                item = item.group(0)
+
+                self.items.append(item)
+                print(item)
+
+    def find_name(self):
+        for item in self.items:
 
             find_name = re.finditer(self.NAME_PATTERN, item)
 
@@ -51,9 +63,7 @@ class BatchProcessing:
 
     # find indication key
     def find_key(self):
-        for item in self.file_contents:
-            item = item.replace('\n', '')
-            # print(f"\n{item}")
+        for item in self.items:
 
             find_key = re.finditer(self.KEY_PATTERN, item)
 
