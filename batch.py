@@ -18,9 +18,6 @@ class BatchProcessing:
         self.items = list()
 
         self.init()
-        print(self.name_items)
-        print(self.key_items)
-        print(self.items)
 
     # start the whole system
     def init(self):
