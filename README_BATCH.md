@@ -1,4 +1,5 @@
 # Getting started
+![batch preview](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20batch%20preview.png "Batch menu preview")
 ## Write a batch set
 ### Create batch set file
 1. Create a new .txt file.
@@ -7,7 +8,13 @@
 4. Save the file.
 
 **NOTE**\
-*After you write activate on the first line, the file is now considered a valid batch set.*
+*After you write activate on the first line, the file is now considered a valid batch set.*\
+**Valid batch set example**\
+![valid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/valid%20batch%20set.png "Valid Batch Set")\
+**Invalid batch set example**\
+![invalid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/invalid%20batch%20set.png "Invalid Batch Set")
+
+
 ### Decide item for batch set
 1. Start by find the weapons you wanted to add to your batch set.
 2. To do this, simply navigate through your weapons folder.
@@ -31,10 +38,13 @@
 3. Select your batch set file
 4. If the text next to the button say\
    ```Batch file is active```\
-   you can then continue
-5. If it say otherwise, please check [batch set file requirment](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file)
+   you can then continue\
+   ![verified/valid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20valid%20batch%20set.png "Valid Batch Set Example")
+5. If it say otherwise,\
+   ![invalid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20invalid%20batch%20set.png "Invalid Batch Set Example")\
+   please check [batch set file requirment](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file)
 6. Before generating, you need to fill **STARTING INDEX** input
 7. The input will be a starting point for the index
 8. Please see the [rules](https://github.com/severusDude/BF2Dynamic-Indication-Generator#weapon-index-fill) to fill the input
-9. Hit the **START BATCH** button
+9.  Hit the **START BATCH** button
 10. A compressed backup file will be generated at *Backups* folder
