@@ -70,8 +70,8 @@ Place the **Crypter.exe** inside directory with structure like shown below
 ### Known issue
 * Program break if weapon index inputed does not stack, this is due to the way generating dictionary item\
   *Example: from index 160 to 234*
-<!-- * No backup will be generated if generate multiple time on the same time without using batch option
-  *Example: generate two times at 11:14* -->
+* backup will be overwrite if generate multiple time on the same time without using batch option
+  *Example: generate two times at 11:14*
 
 
 
