@@ -6,6 +6,7 @@ import qdarkstyle
 
 from Generate import *
 from backup import *
+from batch import *
 from generateindication import *
 from generatedictionary import *
 
@@ -17,17 +18,22 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.setupUi(self)
         self.gen_indi = GenerateIndication()
         self.gen_dict = GenerateDictionary()
+        self.batchset_index = int()
         self.wep_index = int()
         self.wep_name = str()
         self.wep_indi = str()
         self.f1_status = bool()
         self.f2_status = bool()
         self.f3_status = bool()
-        self.all_fstatus = bool()
+        self.batch_contents = str()
+        self.is_active = bool()
+        self.OPTION_1 = "SINGLE GENERATE"
+        self.OPTION_2 = "BATCH PROCESSING"
         self.OPEN_MODE = 'r'
         self.BACKUP_PATH = 'backups'
         self.INDI_PATH = 'HUD\\HudSetup\\Killtext'
         self.DICT_PATH = 'game'
+        self.ACTIVATION_KEY = "activate"
         self.INDEX_START = 1
         self.INDEX_END = 7
 
@@ -38,11 +44,96 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.weapon_name_act)
         self.main_ui.weapon_indi_input.textChanged.connect(
             self.weapon_indi_act)
+        self.main_ui.index_start.textChanged.connect(self.get_index_start)
 
         # connect gen_button to gen_button_act function
         self.main_ui.gen_button.clicked.connect(self.gen_button_act)
         self.main_ui.gen_button.setDisabled(True)
 
+        # open a batch set
+        self.main_ui.choose_batchfile.clicked.connect(self.open_file)
+
+        # start batch from opened batch set
+        self.main_ui.start_batch.clicked.connect(self.start_batch)
+
+        # page switcher
+        self.main_ui.single_button.clicked.connect(
+            lambda: self.page_switcher(0))
+        self.main_ui.batch_button.clicked.connect(
+            lambda: self.page_switcher(1))
+
+    # switch page and show page name
+    def page_switcher(self, to_page):
+        self.main_ui.gen_page.setCurrentIndex(to_page)
+
+        page = self.main_ui.gen_page.currentIndex()
+        if page == 0:
+            self.main_ui.selected_option.setText(self.OPTION_1)
+        else:
+            self.main_ui.selected_option.setText(self.OPTION_2)
+
+    # open batch file
+    def open_file(self):
+        options = QtWidgets.QFileDialog.Options()
+        options |= QtWidgets.QFileDialog.DontUseNativeDialog
+        filename, _ = QtWidgets.QFileDialog.getOpenFileName(
+            self, "Open batch file", "", "*.txt", options=options)
+        if filename:
+            self.main_ui.batch_filepath.setText(filename)
+            self.main_ui.batch_filepath.adjustSize()
+            self.main_ui.console_window.addItem(f"Open batch set: {filename}")
+
+            with open(filename, self.OPEN_MODE) as f:
+                self.batch_contents = f.readlines()
+
+            self.batch_isactive(filename)
+
+    def batch_isactive(self, batch_filepath):
+        key = self.batch_contents[0]
+        key = key.replace('\n', '')
+        print(key)
+
+        if key == self.ACTIVATION_KEY:
+            self.is_active = True
+            self.batch_active()
+
+        else:
+            self.is_active = False
+            self.batch_active()
+
+    def batch_active(self):
+
+        if self.is_active:
+
+            self.main_ui.batch_active.setText("Batch file is active")
+            self.main_ui.batch_active.adjustSize()
+
+            self.main_ui.index_start.setDisabled(False)
+            self.main_ui.index_label.setDisabled(False)
+            self.main_ui.start_batch.setDisabled(False)
+
+            batchset_items = BatchProcessing(
+                self.batch_contents, self.is_active)
+
+            self.main_ui.console_window.addItem(
+                f"Found {len(batchset_items.items)} valid items from batch set:")
+
+            for item in batchset_items.items:
+                self.main_ui.console_window.addItem(f"    {item}")
+
+            # print(batchset_items)
+
+        else:
+
+            self.main_ui.batch_active.setText(
+                "Batch file is not active,\nplease see guide to make your own batch set")
+            self.main_ui.batch_active.adjustSize()
+
+    def start_batch(self):
+        x = self.batchset_index
+        self.main_ui.console_window.addItem(x)
+
+    # start the whole system
     def gen_button_act(self):
         if self.wep_index and len(self.wep_name) and len(self.wep_indi) > 0:
 
@@ -111,11 +202,14 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         print(self.f2_status)
         print(self.f3_status)
 
+    # checking wether input file is exist
     def check_file(self, file_path):
         if os.path.exists(file_path):
             return True
         else:
             return False
+
+    # GET INPUT VALUE FROM USER
 
     # get weapon index from user input
     def weapon_index_act(self, value):
@@ -145,7 +239,16 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         else:
             None
 
+    # get starting batch set index from user input
+    def get_index_start(self, value):
+        if len(value) > 0:
+            self.batchset_index = value
+            print(self.batchset_index)
+        else:
+            None
+
     # defining system exception
+
     def log_uncaught_exceptions(self, ex_cls, ex, tb):
         text = '{}: {}:\n'.format(ex_cls.__name__, ex)
         import traceback
