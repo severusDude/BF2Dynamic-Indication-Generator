@@ -1,6 +1,12 @@
 # Changelog
 All notable change will be documented in this file.\
 This format is based on [Keep a Changelog](keepachangelog.com) and this project adheres to [Semantic Versioning](semver.org)
+<!-- ## release vMaj.Min.Patch date-month-year
+### Added
+* Safety feature for batch processing to prevent accidental duplicate batch set
+### Changed
+### Fixed -->
+
 ## release v1.1.2-beta 03-05-2020
 Beta version of Crypter
 ### Added
