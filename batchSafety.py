@@ -22,25 +22,22 @@ class DuplicateBatchSafety:
     def deactivate_batchset(self, file):
         self.contents = file.readlines()
 
-        read = open(self.FILEPATH, 'r')
+        read_file = open(self.FILEPATH, self.OPEN_MODE)
 
         if self.contents[0] == f"{self.ACTIVATED_KEY}\n":
             new_file_content = ""
-            for line in read:
+            for line in read_file:
                 stripped_line = line.strip()
                 new_line = stripped_line.replace(
                     self.ACTIVATED_KEY, self.DEACTIVATE_KEY)
                 new_file_content += new_line + "\n"
-            read.close()
+            read_file.close()
 
-            with open(self.FILEPATH, 'w') as write:
-                write.write(new_file_content)
+            with open(self.FILEPATH, self.OPEN_MODE) as write_file:
+                write_file.write(new_file_content)
 
         elif self.contents[0] == f"{self.DEACTIVATE_KEY}\n":
             print("File already deactivated")
         else:
             unknown_key = self.contents[0]
             print(f"Error: {unknown_key}Is an unknown key")
-
-
-x = DuplicateBatchSafety('batch\\batch-test.txt', 'r+')
