@@ -8,6 +8,7 @@ import qdarkstyle
 from Generate import *
 from backup import *
 from batch import *
+from batchSafety import *
 from generateindication import *
 from generatedictionary import *
 
@@ -28,7 +29,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.f3_status = bool()
         self.fs_status = bool()
         self.batch_contents = str()
+        self.batch_filepath = str()
         self.is_active = bool()
+        self.index_filled = bool()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
         self.OPEN_MODE = 'r'
@@ -36,6 +39,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.INDI_PATH = 'HUD\\HudSetup\\Killtext'
         self.DICT_PATH = 'game'
         self.ACTIVATION_KEY = "activate"
+        self.DEACTIVATION_KEY = "deactivate"
         self.INDEX_START = 1
         self.INDEX_END = 7
         self.BACKUP_FILELIMIT = 5
@@ -86,6 +90,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self, "Open batch file", "", "*.txt", options=options)
         if filename:
 
+            self.batch_filepath = filename
+
             self.main_ui.batch_filepath.setText(filename)
             self.main_ui.batch_filepath.adjustSize()
             self.main_ui.console_window.addItem(f"Open batch set: {filename}")
@@ -103,72 +109,105 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         if key == self.ACTIVATION_KEY:
             self.is_active = True
             self.batch_active()
+            self.main_ui.batch_active.setText("Batch set is active")
+            self.main_ui.batch_active.adjustSize()
+
+            self.main_ui.start_batch.setDisabled(False)
+
+        elif key == self.DEACTIVATION_KEY:
+
+            self.is_active = False
+            self.main_ui.batch_active.setText(
+                "Batch set is deactivated,\nTo reactivate, see guide")
+            self.main_ui.batch_active.adjustSize()
+            self.main_ui.start_batch.setDisabled(True)
 
         else:
             self.is_active = False
-            self.batch_active()
-
-    def batch_active(self):
-
-        if self.is_active:
-
-            self.main_ui.batch_active.setText("Batch file is active")
-            self.main_ui.batch_active.adjustSize()
-
-            self.main_ui.index_start.setDisabled(False)
-            self.main_ui.index_label.setDisabled(False)
-
-            self.batchset_items = BatchProcessing(
-                self.batch_contents, self.is_active)
-
-            self.main_ui.console_window.addItem(
-                f"Found {len(self.batchset_items.items)} valid items from batch set:")
-
-            for item in self.batchset_items.items:
-                self.main_ui.console_window.addItem(f"    {item}")
-
-        else:
-
             self.main_ui.batch_active.setText(
                 "Batch file is not active,\nplease see guide to make your own batch set")
             self.main_ui.batch_active.adjustSize()
+
+            self.main_ui.start_batch.setDisabled(True)
+
+    def batch_active(self):
+
+        self.main_ui.index_start.setDisabled(False)
+        self.main_ui.index_label.setDisabled(False)
+
+        self.batchset_items = BatchProcessing(
+            self.batch_contents, self.is_active)
+
+        self.main_ui.console_window.addItem(
+            f"Found {len(self.batchset_items.items)} valid items from batch set:")
+
+        for item in self.batchset_items.items:
+            self.main_ui.console_window.addItem(f"    {item}")
 
     def start_batch(self):
 
         self.start_check()
 
-        if self.fs_status:
+        if self.batchset_index > 0:
 
-            # get name items
-            self.batch_itemcount = len(self.batchset_items.items)
-            last_index = self.batchset_index + self.batch_itemcount
-            name_list = self.batchset_items.name_items
-            key_list = self.batchset_items.key_items
+            with open(self.batch_filepath, self.OPEN_MODE) as f:
+                re_readbatch = f.readlines()
 
-            count_index = self.batchset_index
+            if self.fs_status:
 
-            if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
+                # get name items
+                self.batch_itemcount = len(self.batchset_items.items)
+                last_index = self.batchset_index + self.batch_itemcount
+                name_list = self.batchset_items.name_items
+                key_list = self.batchset_items.key_items
 
-                # generate indication from batch set
-                for item in range(self.batchset_index, last_index):
-                    self.gen_indi.init(item)
-                    self.main_ui.console_window.addItem(
-                        f"Added index {item} into Indication Files")
+                if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
 
-                for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
-                    self.gen_dict.init(item_key, item_index, item_name)
-                    self.main_ui.console_window.addItem(
-                        f"Added {item_key} as {item_name} with index of {item_index}")
+                    if re_readbatch[0] == f"{self.DEACTIVATION_KEY}\n":
 
-                QtWidgets.QMessageBox.information(
-                    self, "Batch Processing Succes", "Batch Processing is succes,\nplease re-examine the files before you moved theme to your mod")
+                        QtWidgets.QMessageBox.warning(
+                            self, "Batch Processing Failed", "Error occur when trying to batch processing\nReason: batch set is deactivated")
+
+                    elif re_readbatch[0] == f"{self.ACTIVATION_KEY}\n":
+
+                        # deactivate batch set
+                        DuplicateBatchSafety(self.batch_filepath)
+
+                        # generate indication from batch set
+                        for item in range(self.batchset_index, last_index):
+                            self.gen_indi.init(item)
+                            self.main_ui.console_window.addItem(
+                                f"Added index {item} into Indication Files")
+
+                        for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
+                            self.gen_dict.init(item_key, item_index, item_name)
+                            self.main_ui.console_window.addItem(
+                                f"Added {item_key} as {item_name} with index of {item_index}")
+
+                        QtWidgets.QMessageBox.information(
+                            self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved theme to your mod")
+
+                        self.main_ui.batch_active.setText(
+                            "Batch set is deactivated,\nTo reactivate, see guide")
+                        self.main_ui.batch_active.adjustSize()
+
+                    else:
+
+                        QtWidgets.QMessageBox.warning(
+                            self, "Batch Processing Failed", "Error occur when trying to batch processing\nReason: batch set have unknown key activation")
+
+                else:
+                    QtWidgets.QMessageBox.critical(
+                        self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
 
             else:
-                QtWidgets.QMessageBox.critical(
-                    self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
+                QtWidgets.QMessageBox.warning(
+                    self, "Error FI_1", "Required files are incomplete,\nGenerate is cancelled")
+
         else:
+
             QtWidgets.QMessageBox.warning(
-                self, "Error FI_1", "Required files are incomplete,\nGenerate is cancelled")
+                self, "Error EI_2", "Batch index start is have not been inputted")
 
     # start the whole system
     def gen_button_act(self):
@@ -281,11 +320,11 @@ class ControlMainWindow(QtWidgets.QMainWindow):
     # get starting batch set index from user input
     def get_index_start(self, value):
         if len(value) > 0:
-            self.main_ui.start_batch.setDisabled(False)
+            self.index_filled = True
             self.batchset_index = int(value)
             print(self.batchset_index)
         else:
-            self.main_ui.start_batch.setDisabled(True)
+            self.index_filled = False
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):
