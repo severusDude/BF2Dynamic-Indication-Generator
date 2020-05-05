@@ -1,3 +1,6 @@
+import re
+
+
 class GenerateDictionary:
     def init(self, name, index, indi):
         self.NAME = name
@@ -5,6 +8,8 @@ class GenerateDictionary:
         self.INDI = indi
         self.STRING = f"		\"{name}\"			 : {index},		 # {indi}\n"
         self.DICT_PATH = 'game\\weapons.py'
+        self.PATTERN = r' .*?,'
+        self.FORBID_CHAR = [' ', ':', ',']
         self.open_dict()
 
     # open dictionary file
@@ -20,24 +25,61 @@ class GenerateDictionary:
     # add dictionary from user input
     def dict_add(self, file, index, name, indi):
         contents = file.readlines()
-        text_line, req_index, line_num = self.find_dict_loc(contents, index)
-        print(line_num)
 
-        req_index = int(req_index)
-        contents.insert(line_num, self.STRING)
+        indi_num = list()
+
+        for item in contents:
+            item = item.replace('\n', '')
+
+            find_item = re.finditer(self.PATTERN, item)
+
+            for item in find_item:
+                item = item.group(0)
+
+                for char in self.FORBID_CHAR:
+                    if char in item:
+                        item = item.replace(char, '')
+
+                indi_num.append(item)
+
+                print(item)
+
+        max_num = self.get_max(indi_num)
+
+        for num, line in enumerate(contents, 1):
+            if str(index - 1) in line:
+                num_line = num
+                not_exist = False
+                break
+
+            elif str(max_num) in line:
+                max_num_line = num
+                not_exist = True
+
+        if not_exist:
+            print(
+                f"Highest indicator is {max_num} located in line {max_num_line}")
+            contents.insert(max_num_line, self.STRING)
+
+        else:
+            print(f"Indicator {index - 1} located in {num_line}")
+            contents.insert(num_line, self.STRING)
+
         contents = "".join(contents)
-        del_file = self.clear_dict(file)
+
+        self.clear_dict(file)
+
         file.write(contents)
         return contents
 
-    # find line number for placing dictionary
-    def find_dict_loc(self, file, index):
-        index_str = index - 1
-        index_str = str(index_str)
-        for num, line in enumerate(file, 1):
-            if index_str in line:
-                print(f"it here {index_str}")
-                return line, index_str, num
+    def get_max(self, lst):
+        mx = int()
+
+        for num in lst:
+            if int(num) > mx:
+                mx = int(num)
+
+        return mx
 
     # clear file to prevent duplicate generate
     def clear_dict(self, del_contents):
@@ -45,3 +87,7 @@ class GenerateDictionary:
         del_contents.seek(0)
         del_contents.truncate()
         return del_contents
+
+
+# x = GenerateDictionary()
+# x.init("eu_famas", 234, "FAMAS")
