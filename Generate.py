@@ -63,7 +63,7 @@ class UserInterface(QtWidgets.QMainWindow):
         self.selected_option = QtWidgets.QLabel(self.centralWidget)
         self.selected_option.setGeometry(QtCore.QRect(190, 5, 200, 35))
         self.selected_option.setFont(self.label_font)
-        self.selected_option.setText("SINGLE GENERATION")
+        self.selected_option.setText("SINGLE GENERATE")
         self.selected_option.setStyleSheet(self.label_style)
 
         # single generation page button
@@ -207,9 +207,9 @@ class UserInterface(QtWidgets.QMainWindow):
         icon.addFile("common\\icons\\info.png")
         self.batch_guide.setFont(self.button_font)
         self.batch_guide.setIcon(icon)
-        self.batch_guide.setToolTip("Guide to make your own batch set or generate an existing one")
+        self.batch_guide.setToolTip(
+            "Guide to make your own batch set or generate an existing one")
         self.batch_guide.setText("GUIDE")
-
 
         # INPUTs
         # index_start
