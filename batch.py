@@ -11,7 +11,7 @@ class BatchProcessing:
         self.OPEN_MODE = 'r'
         self.REMOVE_CHAR = ["[", "]", "(", ")"]
         self.ACTIVE = active
-        self.file_contents = file_contents
+        self.FILE_CONTENTS = file_contents
         self.file_exist = bool()
         self.name_items = list()
         self.key_items = list()
@@ -32,7 +32,7 @@ class BatchProcessing:
 
     # find a valid item
     def find_item(self):
-        for item in self.file_contents:
+        for item in self.FILE_CONTENTS:
             item = item.replace('\n', '')
 
             find_item = re.finditer(
