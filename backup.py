@@ -34,6 +34,7 @@ class BackupFiles:
         self.gen_backupdir_path = f'{self.TEMP_DIR_PATH}\\{self.backup_filename}'
         # output will be temp\Backup_(current_time)
 
+        # call self.init() to start system
         if len(self.REQ_DIR1_PATH) and len(self.REQ_DIR2_PATH) > 0:
             self.init()
 

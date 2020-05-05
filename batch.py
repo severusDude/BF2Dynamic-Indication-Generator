@@ -30,6 +30,7 @@ class BatchProcessing:
         else:
             print("file not meet requirment")
 
+    # find a valid item
     def find_item(self):
         for item in self.file_contents:
             item = item.replace('\n', '')
@@ -43,6 +44,7 @@ class BatchProcessing:
                 self.items.append(item)
                 print(item)
 
+    # find name from scanned valid item
     def find_name(self):
         for item in self.items:
 
@@ -58,7 +60,7 @@ class BatchProcessing:
                 self.name_items.append(item)
                 print(item)
 
-    # find indication key
+    # find indication key from scanned valid item
     def find_key(self):
         for item in self.items:
 
@@ -72,7 +74,3 @@ class BatchProcessing:
                         item = item.replace(char, '')
                 self.key_items.append(item)
                 print(item)
-
-
-# x = BatchProcessing('batch\\batch-test.txt')
-# print(x)

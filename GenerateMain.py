@@ -29,9 +29,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.f3_status = bool()
         self.fs_status = bool()
         self.batch_contents = str()
-        self.batch_filepath = str()
         self.is_active = bool()
         self.index_filled = bool()
+        self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
         self.OPEN_MODE = 'r'
@@ -88,9 +88,10 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         options |= QtWidgets.QFileDialog.DontUseNativeDialog
         filename, _ = QtWidgets.QFileDialog.getOpenFileName(
             self, "Open batch file", "", "*.txt", options=options)
+
         if filename:
 
-            self.batch_filepath = filename
+            self.BATCHSET_PATH = filename
 
             self.main_ui.batch_filepath.setText(filename)
             self.main_ui.batch_filepath.adjustSize()
@@ -150,7 +151,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
         if self.batchset_index > 0:
 
-            with open(self.batch_filepath, self.OPEN_MODE) as f:
+            with open(self.BATCHSET_PATH, self.OPEN_MODE) as f:
                 re_readbatch = f.readlines()
 
             if self.fs_status:
@@ -171,7 +172,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                     elif re_readbatch[0] == f"{self.ACTIVATION_KEY}\n":
 
                         # deactivate batch set
-                        DuplicateBatchSafety(self.batch_filepath)
+                        DuplicateBatchSafety(self.BATCHSET_PATH)
 
                         # generate indication from batch set
                         for item in range(self.batchset_index, last_index):

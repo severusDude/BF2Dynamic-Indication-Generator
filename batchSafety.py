@@ -13,13 +13,16 @@ class DuplicateBatchSafety:
 
         self.init()
 
+    # start system
     def init(self):
         self.read_batchset()
 
+    # open batch set
     def read_batchset(self):
         with open(self.FILEPATH, self.OPEN_MODE) as f:
             self.deactivate_batchset(f)
 
+    # deactivate opened batch set
     def deactivate_batchset(self, file):
         self.contents = file.readlines()
 
@@ -36,7 +39,7 @@ class DuplicateBatchSafety:
 
             with open(self.FILEPATH, self.OPEN_MODE) as write_file:
                 write_file.write(new_file_content)
-            
+
             self.status = True
 
         elif self.contents[0] == f"{self.DEACTIVATE_KEY}\n":
