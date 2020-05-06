@@ -5,8 +5,9 @@ This format is based on [Keep a Changelog](keepachangelog.com) and this project 
 ### Added
 * Safety feature for batch processing to prevent accidental duplicate batch set
 ### Changed
-* WIP improved dictionary line search
-### Fixed -->
+### Fixed
+* Fixed dictionary line searching
+-->
 
 ## release v1.1.2-beta 03-05-2020
 Beta version of Crypter
