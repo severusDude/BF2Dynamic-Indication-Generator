@@ -36,23 +36,20 @@ class GenerateDictionary:
             for item in find_item:
                 item = item.group(0)
 
-                for char in self.FORBID_CHAR:
-                    if char in item:
-                        item = item.replace(char, '')
-
                 indi_num.append(item)
 
-                print(item)
+        max_num, str_num = self.get_max(indi_num)
 
-        max_num = self.get_max(indi_num)
+        print(str_num)
 
         for num, line in enumerate(contents, 1):
-            if str(index - 1) in line:
+            if f" : {index - 1}," in line:
                 num_line = num
                 not_exist = False
                 break
 
-            elif str(max_num) in line:
+            elif str_num in line:
+                print(f"{str_num} is on {num}")
                 max_num_line = num
                 not_exist = True
 
@@ -66,7 +63,6 @@ class GenerateDictionary:
             contents.insert(num_line, self.STRING)
 
         contents = "".join(contents)
-
         self.clear_dict(file)
 
         file.write(contents)
@@ -76,10 +72,21 @@ class GenerateDictionary:
         mx = int()
 
         for num in lst:
+
+            print(num)
+
+            for char in self.FORBID_CHAR:
+                if char in num:
+                    num = num.replace(char, '')
+
             if int(num) > mx:
                 mx = int(num)
 
-        return mx
+        print(f"mx = {mx}")
+
+        str_num = f" : {mx},"
+
+        return mx, str_num
 
     # clear file to prevent duplicate generate
     def clear_dict(self, del_contents):
@@ -89,5 +96,5 @@ class GenerateDictionary:
         return del_contents
 
 
-# x = GenerateDictionary()
-# x.init("eu_famas", 234, "FAMAS")
+x = GenerateDictionary()
+x.init("eu_famas", 96, "FAMAS")
