@@ -94,7 +94,3 @@ class GenerateDictionary:
         del_contents.seek(0)
         del_contents.truncate()
         return del_contents
-
-
-x = GenerateDictionary()
-x.init("eu_famas", 96, "FAMAS")
