@@ -2,6 +2,7 @@
 *.exe
 *.spec
 .vscode
+export
 build
 dist
 temp
