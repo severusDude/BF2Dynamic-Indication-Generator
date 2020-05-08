@@ -96,6 +96,16 @@ class UserInterface(QtWidgets.QMainWindow):
         self.weapon_indi.setText("WEAPON INDICATION")
         self.weapon_indi.setFont(self.label_font)
 
+        self.texture_label1 = QtWidgets.QLabel(self.single_genpage)
+        self.texture_label1.setGeometry(QtCore.QRect(165, 315, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.texture_label1.setFont(font)
+        self.texture_label1.setText("Generate Texture")
+
         # INPUTS
         # weapon index input
         self.weapon_index_input = QtWidgets.QLineEdit(self.single_genpage)
@@ -126,6 +136,9 @@ class UserInterface(QtWidgets.QMainWindow):
         self.gen_button.setIcon(icon)
         self.gen_button.setText("GENERATE")
         self.gen_button.setFont(self.button_font)
+
+        self.gen_texture1 = QtWidgets.QCheckBox(self.single_genpage)
+        self.gen_texture1.setGeometry(QtCore.QRect(140, 318, 20, 20))
 
         ### PAGE 2 ###
 
@@ -172,6 +185,16 @@ class UserInterface(QtWidgets.QMainWindow):
         self.index_label.setText("Start index")
         self.index_label.setDisabled(True)
 
+        self.texture_label2 = QtWidgets.QLabel(self.batch_genpage)
+        self.texture_label2.setGeometry(QtCore.QRect(135, 185, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.texture_label2.setFont(font)
+        self.texture_label2.setText("Generate Texture")
+
         # label console
         self.console_label = QtWidgets.QLabel(self.batch_genpage)
         self.console_label.setGeometry(QtCore.QRect(10, 290, 155, 25))
@@ -210,6 +233,9 @@ class UserInterface(QtWidgets.QMainWindow):
         self.batch_guide.setToolTip(
             "Guide to make your own batch set or generate an existing one")
         self.batch_guide.setText("GUIDE")
+
+        self.gen_texture2 = QtWidgets.QCheckBox(self.batch_genpage)
+        self.gen_texture2.setGeometry(QtCore.QRect(110, 188, 20, 20))
 
         # INPUTs
         # index_start
