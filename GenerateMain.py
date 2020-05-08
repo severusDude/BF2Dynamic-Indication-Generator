@@ -1,6 +1,7 @@
 import sys
 import os
 import webbrowser
+import pathlib
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import qdarkstyle
@@ -34,6 +35,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.gen_texture1 = bool()
         self.gen_texture2 = bool()
         self.index_filled = bool()
+        self.CURRENT_DIR = str(pathlib.Path(__file__).parent.absolute())
         self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
@@ -154,6 +156,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.index_start.setDisabled(False)
         self.main_ui.index_label.setDisabled(False)
 
+        self.main_ui.gen_texture2.setDisabled(False)
+        self.main_ui.texture_label2.setDisabled(False)
+
         self.batchset_items = BatchProcessing(
             self.batch_contents, self.is_active)
 
@@ -189,26 +194,55 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                     elif re_readbatch[0] == f"{self.ACTIVATION_KEY}\n":
 
-                        # deactivate batch set
-                        DuplicateBatchSafety(self.BATCHSET_PATH)
-
-                        # generate indication from batch set
-                        for item in range(self.batchset_index, last_index):
-                            self.gen_indi.init(item)
-                            self.main_ui.console_window.addItem(
-                                f"Added index {item} into Indication Files")
-
-                        for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
-                            self.gen_dict.init(item_key, item_index, item_name)
-                            self.main_ui.console_window.addItem(
-                                f"Added {item_key} as {item_name} with index of {item_index}")
-
                         if self.gen_texture2:
-                            GenerateTextureBatch(
-                                self.batchset_index, name_list)
-                            QtWidgets.QMessageBox.information(
-                                self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
+                            if self.check_file(f"{self.CURRENT_DIR}\\psd\\Indicationweapon.psd"):
+                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationweapon.psd"):
+
+                                    # deactivate batch set
+                                    DuplicateBatchSafety(self.BATCHSET_PATH)
+
+                                    # generate indication from batch set
+                                    for item in range(self.batchset_index, last_index):
+                                        self.gen_indi.init(item)
+                                        self.main_ui.console_window.addItem(
+                                            f"Added index {item} into Indication Files")
+
+                                    for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
+                                        self.gen_dict.init(
+                                            item_key, item_index, item_name)
+                                        self.main_ui.console_window.addItem(
+                                            f"Added {item_key} as {item_name} with index of {item_index}")
+
+                                    GenerateTextureBatch(
+                                        self.batchset_index, name_list)
+                                    QtWidgets.QMessageBox.information(
+                                        self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
+
+                                else:
+                                    QtWidgets.QMessageBox.warning(
+                                        self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
+
+                            else:
+                                QtWidgets.QMessageBox.warning(
+                                    self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
+
                         else:
+
+                            # deactivate batch set
+                            DuplicateBatchSafety(self.BATCHSET_PATH)
+
+                            # generate indication from batch set
+                            for item in range(self.batchset_index, last_index):
+                                self.gen_indi.init(item)
+                                self.main_ui.console_window.addItem(
+                                    f"Added index {item} into Indication Files")
+
+                            for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
+                                self.gen_dict.init(
+                                    item_key, item_index, item_name)
+                                self.main_ui.console_window.addItem(
+                                    f"Added {item_key} as {item_name} with index of {item_index}")
+
                             QtWidgets.QMessageBox.information(
                                 self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is not generated")
 
@@ -243,15 +277,33 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             # action if all required file is checked and exist
             if self.fs_status:
                 if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
-                    self.gen_indi.init(self.wep_index)
-                    self.gen_dict.init(
-                        self.wep_name, self.wep_index, self.wep_indi)
 
                     if self.gen_texture1:
-                        GenerateTextureSingle(self.wep_index, self.wep_indi)
-                        QtWidgets.QMessageBox.information(
-                            self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
+                        if self.check_file(f"{CURRENT_DIR}\\psd\\Indicationweapon.psd"):
+                            if self.check_file(f"{CURRENT_DIR}\\psd\\KilledIndicationweapon.psd"):
+                                self.gen_indi.init(self.wep_index)
+                                self.gen_dict.init(
+                                    self.wep_name, self.wep_index, self.wep_indi)
+
+                                GenerateTextureSingle(
+                                    self.wep_index, self.wep_indi)
+
+                                QtWidgets.QMessageBox.information(
+                                    self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
+
+                            else:
+                                QtWidgets.QMessageBox.warning(
+                                    self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
+
+                        else:
+                            QtWidgets.QMessageBox.warning(
+                                self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
+
                     else:
+                        self.gen_indi.init(self.wep_index)
+                        self.gen_dict.init(
+                            self.wep_name, self.wep_index, self.wep_indi)
+
                         QtWidgets.QMessageBox.information(
                             self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly")
 

@@ -194,6 +194,7 @@ class UserInterface(QtWidgets.QMainWindow):
         font.setWeight(60)
         self.texture_label2.setFont(font)
         self.texture_label2.setText("Generate Texture")
+        self.texture_label2.setDisabled(True)
 
         # label console
         self.console_label = QtWidgets.QLabel(self.batch_genpage)
@@ -236,6 +237,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
         self.gen_texture2 = QtWidgets.QCheckBox(self.batch_genpage)
         self.gen_texture2.setGeometry(QtCore.QRect(110, 188, 20, 20))
+        self.gen_texture2.setDisabled(True)
 
         # INPUTs
         # index_start
