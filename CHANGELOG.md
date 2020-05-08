@@ -4,6 +4,7 @@ This format is based on [Keep a Changelog](keepachangelog.com) and this project 
 <!-- ## release vMaj.Min.Patch date-month-year
 ### Added
 * Safety feature for batch processing to prevent accidental duplicate batch set
+* Generate texture option for both single generate and batch processing
 ### Changed
 ### Fixed
 * Fixed dictionary line searching
