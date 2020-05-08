@@ -30,7 +30,7 @@ OPTIONS.Format = 13
 OPTIONS.PNG8 = False
 
 
-class GenerateTextureSingle:
+class GenerateTexture:
     def __init__(self, index, indi):
         self.INDEX = index
         self.INDI = indi
@@ -72,51 +72,20 @@ class GenerateTextureSingle:
             img.save(filename=export_dds)
 
     def generate_killed(self, doc):
-        pass
+        shade = doc.ArtLayers["Shade"]
+        main = doc.ArtLayers["Main"]
 
+        shade_text = shade.TextItem
+        main_text = main.TextItem
 
-class GenerateTextureBatch:
-    def __init__(self, index, wep_list):
-        self.WEP_LIST = wep_list
-        self.INDEX = index
-        self.LAST_INDEX = len(self.WEP_LIST) + self.INDEX
+        shade_text.contents = f"[{self.INDI.upper()}]"
+        main_text.contents = f"[{self.INDI.upper()}]"
 
-        self.open_psd("indi")
-        self.open_psd("killed")
+        export_png = f"{CURRENT_DIR}\\export\\png\\KilledIndicationWeapon{self.INDEX}.png"
+        export_dds = f"{CURRENT_DIR}\\export\\dds\\KilledIndicationWeapon{self.INDEX}.dds"
 
-    def open_psd(self, filename):
-        if filename == "indi":
-            PSAPP.Open(f"{CURRENT_DIR}\\{INDI_PATH}")
-            doc = PSAPP.Application.ActiveDocument
-            self.generate_indi(doc)
+        doc.Export(ExportIn=export_png, ExportAs=2, Options=OPTIONS)
 
-        elif filename == "killed":
-            PSAPP.Open(f"{CURRENT_DIR}\\{KILLED_PATH}")
-            doc = PSAPP.Application.ActiveDocument
-            self.generate_killed(doc)
-
-        else:
-            print("unknown keyword")
-
-    def generate_indi(self, doc):
-        for fileindex, item in zip(range(self.INDEX, self.LAST_INDEX), self.WEP_LIST):
-            shade = doc.ArtLayers["Shade"]
-            main = doc.ArtLayers["Main"]
-
-            shade_text = shade.TextItem
-            main_text = main.TextItem
-
-            shade_text.contents = f"[{item.upper()}]"
-            main_text.contents = f"[{item.upper()}]"
-
-            export_png = f"{CURRENT_DIR}\\export\\png\\Indicationweapon{fileindex}.png"
-            export_dds = f"{CURRENT_DIR}\\export\\dds\\Indicationweapon{fileindex}.dds"
-
-            doc.Export(ExportIn=export_png, ExportAs=2, Options=OPTIONS)
-
-            with Image(filename=export_png) as img:
-                img.compression = 'dxt5'
-                img.save(filename=export_dds)
-
-    def generate_killed(self, doc):
-        pass
+        with Image(filename=export_png) as img:
+            img.compression = 'dxt5'
+            img.save(filename=export_dds)
