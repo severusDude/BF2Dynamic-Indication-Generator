@@ -11,6 +11,7 @@ from batch import *
 from batchSafety import *
 from generateindication import *
 from generatedictionary import *
+from texture import *
 
 
 class ControlMainWindow(QtWidgets.QMainWindow):
@@ -30,6 +31,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.fs_status = bool()
         self.batch_contents = str()
         self.is_active = bool()
+        self.gen_texture1 = bool()
+        self.gen_texture2 = bool()
         self.index_filled = bool()
         self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
@@ -66,6 +69,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.batch_guide.clicked.connect(
             lambda: webbrowser.open_new_tab('https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file'))
 
+        self.main_ui.gen_texture1.stateChanged.connect(self.gen_picker1)
+        self.main_ui.gen_texture2.stateChanged.connect(self.gen_picker2)
+
         # page switcher
         self.main_ui.single_button.clicked.connect(
             lambda: self.page_switcher(0))
@@ -81,6 +87,18 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.main_ui.selected_option.setText(self.OPTION_1)
         else:
             self.main_ui.selected_option.setText(self.OPTION_2)
+
+    def gen_picker1(self, state):
+        if state == QtCore.Qt.Checked:
+            self.gen_texture1 = True
+        else:
+            self.gen_texture1 = False
+
+    def gen_picker2(self, state):
+        if state == QtCore.Qt.Checked:
+            self.gen_texture2 = True
+        else:
+            self.gen_texture2 = False
 
     # open batch file
     def open_batchfile(self):
@@ -185,8 +203,14 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                             self.main_ui.console_window.addItem(
                                 f"Added {item_key} as {item_name} with index of {item_index}")
 
-                        QtWidgets.QMessageBox.information(
-                            self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved theme to your mod")
+                        if self.gen_texture2:
+                            GenerateTextureBatch(
+                                self.batchset_index, name_list)
+                            QtWidgets.QMessageBox.information(
+                                self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
+                        else:
+                            QtWidgets.QMessageBox.information(
+                                self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is not generated")
 
                         self.main_ui.batch_active.setText(
                             "Batch set is deactivated,\nTo reactivate, see guide")
@@ -222,8 +246,15 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                     self.gen_indi.init(self.wep_index)
                     self.gen_dict.init(
                         self.wep_name, self.wep_index, self.wep_indi)
-                    QtWidgets.QMessageBox.information(
-                        self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly")
+
+                    if self.gen_texture1:
+                        GenerateTextureSingle(self.wep_index, self.wep_indi)
+                        QtWidgets.QMessageBox.information(
+                            self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
+                    else:
+                        QtWidgets.QMessageBox.information(
+                            self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly")
+
                 else:
                     QtWidgets.QMessageBox.critical(
                         self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
