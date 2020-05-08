@@ -213,8 +213,11 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                         self.main_ui.console_window.addItem(
                                             f"Added {item_key} as {item_name} with index of {item_index}")
 
-                                    GenerateTextureBatch(
-                                        self.batchset_index, name_list)
+                                    for tex_name, tex_index in zip(name_list, range(self.batchset_index, last_index)):
+                                        GenerateTexture(tex_index, tex_name)
+                                        self.main_ui.console_window.addItem(
+                                            f"Texture index {tex_index} is generated with text {tex_name}")
+
                                     QtWidgets.QMessageBox.information(
                                         self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
 
@@ -285,8 +288,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                 self.gen_dict.init(
                                     self.wep_name, self.wep_index, self.wep_indi)
 
-                                GenerateTextureSingle(
-                                    self.wep_index, self.wep_indi)
+                                GenerateTexture(self.wep_index, self.wep_indi)
 
                                 QtWidgets.QMessageBox.information(
                                     self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
