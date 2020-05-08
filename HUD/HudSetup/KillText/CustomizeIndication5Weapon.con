@@ -1,7 +1,3 @@
-
-
-
-
 hudBuilder.createPictureNode	IngameHud Indication5weapon0 301 448 162 24
 hudBuilder.setPictureNodeTexture 	Ingame/Killtext/Indication/Indicationweapon0.dds
 hudBuilder.setNodeShowVariable	DemoRecInterfaceShow
