@@ -40,8 +40,6 @@ class GenerateDictionary:
 
         max_num, str_num = self.get_max(indi_num)
 
-        print(str_num)
-
         for num, line in enumerate(contents, 1):
             if f" : {index - 1}," in line:
                 num_line = num
@@ -49,17 +47,13 @@ class GenerateDictionary:
                 break
 
             elif str_num in line:
-                print(f"{str_num} is on {num}")
                 max_num_line = num
                 not_exist = True
 
         if not_exist:
-            print(
-                f"Highest indicator is {max_num} located in line {max_num_line}")
             contents.insert(max_num_line, self.STRING)
 
         else:
-            print(f"Indicator {index - 1} located in {num_line}")
             contents.insert(num_line, self.STRING)
 
         contents = "".join(contents)
@@ -73,16 +67,12 @@ class GenerateDictionary:
 
         for num in lst:
 
-            print(num)
-
             for char in self.FORBID_CHAR:
                 if char in num:
                     num = num.replace(char, '')
 
             if int(num) > mx:
                 mx = int(num)
-
-        print(f"mx = {mx}")
 
         str_num = f" : {mx},"
 
