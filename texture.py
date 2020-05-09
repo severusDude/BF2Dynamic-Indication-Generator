@@ -1,4 +1,3 @@
-import pathlib
 import os
 
 from win32com.client import Dispatch
@@ -8,7 +7,7 @@ APP = "Photoshop.Application"
 EXPORT_AS = "Photoshop.ExportOptionsSaveForWeb"
 
 # path
-CURRENT_DIR = str(pathlib.Path(__file__).parent.absolute())
+CURRENT_DIR = str(os.path.abspath(os.getcwd()))
 EXPORT_PATH = f"{CURRENT_DIR}\\export"
 PNG_PATH = f"{CURRENT_DIR}\\export\\png"
 DDS_PATH = f"{CURRENT_DIR}\\export\\dds"

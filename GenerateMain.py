@@ -1,7 +1,6 @@
 import sys
 import os
 import webbrowser
-import pathlib
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import qdarkstyle
@@ -31,7 +30,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.gen_texture1 = bool()
         self.gen_texture2 = bool()
         self.index_filled = bool()
-        self.CURRENT_DIR = str(pathlib.Path(__file__).parent.absolute())
+        self.CURRENT_DIR = str(os.path.abspath(os.getcwd()))
         self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
@@ -192,7 +191,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                         if self.gen_texture2:
                             if self.check_file(f"{self.CURRENT_DIR}\\psd\\Indicationweapon.psd"):
-                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationweapon.psd"):
+                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
 
                                     # deactivate batch set
                                     DuplicateBatchSafety(
@@ -277,7 +276,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                     if self.gen_texture1:
                         if self.check_file(f"{CURRENT_DIR}\\psd\\Indicationweapon.psd"):
-                            if self.check_file(f"{CURRENT_DIR}\\psd\\KilledIndicationweapon.psd"):
+                            if self.check_file(f"{CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
                                 self.gen_indi.init(self.wep_index)
                                 self.gen_dict.init(
                                     self.wep_name, self.wep_index, self.wep_indi)
@@ -294,7 +293,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                         else:
                             QtWidgets.QMessageBox.warning(
-                                self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
+                                self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
 
                     else:
                         self.gen_indi.init(self.wep_index)
