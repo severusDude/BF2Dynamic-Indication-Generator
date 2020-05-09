@@ -26,10 +26,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.wep_index = int()
         self.wep_name = str()
         self.wep_indi = str()
-        self.f1_status = bool()
-        self.f2_status = bool()
-        self.f3_status = bool()
-        self.fs_status = bool()
         self.batch_contents = str()
         self.is_active = bool()
         self.gen_texture1 = bool()
@@ -41,7 +37,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.OPTION_2 = "BATCH PROCESSING"
         self.OPEN_MODE = 'r'
         self.BACKUP_PATH = 'backups'
-        self.INDI_PATH = 'HUD\\HudSetup\\Killtext'
+        self.INDI_PATH = 'HUD\\HudSetup\\KillText'
         self.DICT_PATH = 'game'
         self.ACTIVATION_KEY = "activate"
         self.DEACTIVATION_KEY = "deactivate"
@@ -90,12 +86,14 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         else:
             self.main_ui.selected_option.setText(self.OPTION_2)
 
+    # get state of single page check box
     def gen_picker1(self, state):
         if state == QtCore.Qt.Checked:
             self.gen_texture1 = True
         else:
             self.gen_texture1 = False
 
+    # get state of batch page check box
     def gen_picker2(self, state):
         if state == QtCore.Qt.Checked:
             self.gen_texture2 = True
@@ -170,25 +168,23 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     def start_batch(self):
 
-        self.start_check()
+        if self.check_files():
 
-        if self.batchset_index > 0:
+            if self.batchset_index > 0:
 
-            with open(self.BATCHSET_PATH, self.OPEN_MODE) as f:
-                re_readbatch = f.readlines()
+                # re read batch if there's any changes
+                with open(self.BATCHSET_PATH, self.OPEN_MODE) as f:
+                    re_readbatch = f.readlines()
 
-            if self.fs_status:
-
-                # get name items
-                self.batch_itemcount = len(self.batchset_items.items)
-                last_index = self.batchset_index + self.batch_itemcount
+                # get item criteria
+                item_count = len(self.batchset_items.items)
+                last_index = self.batchset_index + item_count
                 name_list = self.batchset_items.name_items
                 key_list = self.batchset_items.key_items
 
                 if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
 
                     if re_readbatch[0] == f"{self.DEACTIVATION_KEY}\n":
-
                         QtWidgets.QMessageBox.warning(
                             self, "Batch Processing Failed", "Error occur when trying to batch processing\nReason: batch set is deactivated")
 
@@ -199,7 +195,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                 if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationweapon.psd"):
 
                                     # deactivate batch set
-                                    DuplicateBatchSafety(self.BATCHSET_PATH)
+                                    DuplicateBatchSafety(
+                                        self.BATCHSET_PATH)
 
                                     # generate indication from batch set
                                     for item in range(self.batchset_index, last_index):
@@ -214,7 +211,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                             f"Added {item_key} as {item_name} with index of {item_index}")
 
                                     for tex_name, tex_index in zip(name_list, range(self.batchset_index, last_index)):
-                                        GenerateTexture(tex_index, tex_name)
+                                        GenerateTexture(
+                                            tex_index, tex_name)
                                         self.main_ui.console_window.addItem(
                                             f"Texture index {tex_index} is generated with text {tex_name}")
 
@@ -254,7 +252,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                         self.main_ui.batch_active.adjustSize()
 
                     else:
-
                         QtWidgets.QMessageBox.warning(
                             self, "Batch Processing Failed", "Error occur when trying to batch processing\nReason: batch set have unknown key activation")
 
@@ -264,21 +261,18 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
             else:
                 QtWidgets.QMessageBox.warning(
-                    self, "Error FI_1", "Required files are incomplete,\nGenerate is cancelled")
+                    self, "Error EI_2", "Batch index start is have not been inputted")
 
         else:
-
             QtWidgets.QMessageBox.warning(
-                self, "Error EI_2", "Batch index start is have not been inputted")
+                self, "Error FNE" "Required file missing, further generating is cancelled")
 
     # start the whole system
     def gen_button_act(self):
-        if self.wep_index and len(self.wep_name) and len(self.wep_indi) > 0:
+        if self.wep_index > 0 and len(self.wep_name) > 0 and len(self.wep_indi) > 0:
 
-            self.start_check()
+            if self.check_files():
 
-            # action if all required file is checked and exist
-            if self.fs_status:
                 if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
 
                     if self.gen_texture1:
@@ -288,7 +282,8 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                 self.gen_dict.init(
                                     self.wep_name, self.wep_index, self.wep_indi)
 
-                                GenerateTexture(self.wep_index, self.wep_indi)
+                                GenerateTexture(
+                                    self.wep_index, self.wep_indi)
 
                                 QtWidgets.QMessageBox.information(
                                     self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
@@ -314,70 +309,78 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                         self, "CAUTION", "Automatic backup system is failed to backup.\nFurther generating scripts is cancelled")
                 print("not ready")
 
+            else:
+                QtWidgets.QMessageBox.warning(
+                    self, "Error FNE" "Required file missing, further generating is cancelled")
+
         else:
             QtWidgets.QMessageBox.warning(
                 self, "Error EI_1", "You need to input all the textfield")
 
-    # start checking required files
-    def start_check(self):
+    # check required files is exist
+    def check_files(self):
+
+        # file statuses
+        file1 = bool()
+        file2 = bool()
+        file3 = bool()
 
         # required files location
-        att_wep = f'{self.INDI_PATH}\\HudElementsAttackerWeapon.con'
-        wep_dict = f"{self.DICT_PATH}\\weapons.py"
+        att_con = f'{self.INDI_PATH}\\HudElementsAttackerWeapon.con'
+        scor_wep = f'{self.DICT_PATH}\\scoring_wpn.py'
 
-        index_list = list()
-        index_listed = [temp for temp in range(
+        # temporary variable to check 6 files of CustomizeIndicationWeapon.con
+        page_list = list()
+        page_listed = [temp for temp in range(
             self.INDEX_START, self.INDEX_END)]
 
-        # check HudElementsIndication1-6.con files
-        for page in range(self.INDEX_START, self.INDEX_END):
-            indi_files = f'HUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con'
-            if self.check_file(indi_files):
-                index_list.append(page)
+        try:
+            # check CustomizeIndication1-6Weapon.con files
+            for page in range(self.INDEX_START, self.INDEX_END):
+                cust_con = f'{self.INDI_PATH}\\CustomizeIndication{page}Weapon.con'
+                if self.check_file(cust_con):
+                    page_list.append(page)
+                else:
+                    print(
+                        f"Error at CustomizeIndication{page}.con\nFile not found")
+                    QtWidgets.QMessageBox.warning(
+                        self, f"Error FNE_A_{page}", f"Error code: FNE_A_{page}\n\nRequired file is missing:\n\t{cust_con}")
+
+            if page_list == page_listed:
+                file1 = True
+
+                # check AttackerWeapon.con
+                if self.check_file(att_con):
+                    file2 = True
+
+                    # check scoring_wpn.py
+                    if self.check_file(scor_wep):
+                        file3 = True
+                    else:
+                        file3 = False
+                        QtWidgets.QMessageBox.warning(
+                            self, f"Error FNE_C", f"Error code: FNE_C\n\nRequired file is missing\n\t{scor_wep}")
+                else:
+                    file2 = False
+                    QtWidgets.QMessageBox.warning(
+                        self, f"Error FNE_B" f"Error code: FNE_B\n\nRequired file is missing:\n\t{att_con}")
             else:
-                print(f"error at HudElementsIndication{page}.con")
-                QtWidgets.QMessageBox.critical(
-                    self, "Error FNE_A_1", f"Error code: A_{page}\n\nRequired file is missing:\n\tHUD\\HudSetup\\Killtext\\HudElementsIndication{page}.con")
+                file1 = False
 
-        if index_list == index_listed:
-            self.f1_status = True
-        else:
-            self.f1_status = False
+            if file1 == True and file2 == True and file3 == True:
+                return True
 
-        # check HudElementsAttackerWeapon.con
-        if self.check_file(att_wep):
-            self.f2_status = True
-        else:
-            self.f2_status = False
-            QtWidgets.QMessageBox.critical(
-                self, "Error FNE_B_2", f"Error code: B_2\n\nRequired file is missing:\n\tHUD\\HudSetup\\Killtext\\HudElementsAttackerWeapon.con")
+        except:
+            return False
 
-        # check weapons.py file
-        if self.check_file(wep_dict):
-            self.f3_status = True
-        else:
-            self.f3_status = False
-            QtWidgets.QMessageBox.critical(
-                self, "Error FNE_C_3", "Error code: C_1\n\nRequired file is missing:\n\tgame\\weapons.py")
-
-        print(self.f1_status)
-        print(self.f2_status)
-        print(self.f3_status)
-
-        if self.f1_status == True and self.f2_status == True and self.f3_status == True:
-            self.fs_status = True
-        else:
-            self.fs_status = False
-
-    # checking wether input file is exist
-    def check_file(self, file_path):
-        if os.path.exists(file_path):
+    # checking if file is exist
+    def check_file(self, filepath):
+        if os.path.exists(filepath):
             return True
         else:
             return False
 
     # GET INPUT VALUE FROM USER
-
     # get weapon index from user input
     def weapon_index_act(self, value):
         if len(value) > 0:
