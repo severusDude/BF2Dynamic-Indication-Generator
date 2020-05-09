@@ -96,8 +96,19 @@ class UserInterface(QtWidgets.QMainWindow):
         self.weapon_indi.setText("WEAPON INDICATION")
         self.weapon_indi.setFont(self.label_font)
 
+        self.script_label1 = QtWidgets.QLabel(self.single_genpage)
+        self.script_label1.setGeometry(QtCore.QRect(165, 315, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.script_label1.setFont(font)
+        self.script_label1.setText("Generate Script")
+
+        # generate texture label
         self.texture_label1 = QtWidgets.QLabel(self.single_genpage)
-        self.texture_label1.setGeometry(QtCore.QRect(165, 315, 155, 25))
+        self.texture_label1.setGeometry(QtCore.QRect(165, 335, 155, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
@@ -137,11 +148,16 @@ class UserInterface(QtWidgets.QMainWindow):
         self.gen_button.setText("GENERATE")
         self.gen_button.setFont(self.button_font)
 
+        # generate script option
+        self.gen_script1 = QtWidgets.QCheckBox(self.single_genpage)
+        self.gen_script1.setGeometry(QtCore.QRect(140, 318, 20, 20))
+        self.gen_script1.setChecked(True)
+
+        # generate texture option
         self.gen_texture1 = QtWidgets.QCheckBox(self.single_genpage)
-        self.gen_texture1.setGeometry(QtCore.QRect(140, 318, 20, 20))
+        self.gen_texture1.setGeometry(QtCore.QRect(140, 338, 20, 20))
 
         ### PAGE 2 ###
-
         # LABELS
         # file status label
         self.batch_filepath = QtWidgets.QLabel(self.batch_genpage)
@@ -184,7 +200,7 @@ class UserInterface(QtWidgets.QMainWindow):
         self.index_label.setFont(font)
         self.index_label.setText("Start index")
         self.index_label.setDisabled(True)
-        
+
         # generate script label
         self.script_label2 = QtWidgets.QLabel(self.batch_genpage)
         self.script_label2.setGeometry(QtCore.QRect(135, 185, 155, 25))
