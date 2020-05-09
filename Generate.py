@@ -184,9 +184,22 @@ class UserInterface(QtWidgets.QMainWindow):
         self.index_label.setFont(font)
         self.index_label.setText("Start index")
         self.index_label.setDisabled(True)
+        
+        # generate script label
+        self.script_label2 = QtWidgets.QLabel(self.batch_genpage)
+        self.script_label2.setGeometry(QtCore.QRect(135, 185, 155, 25))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(60)
+        self.script_label2.setFont(font)
+        self.script_label2.setText("Generate Script")
+        self.script_label2.setDisabled(True)
 
+        # generate texture label
         self.texture_label2 = QtWidgets.QLabel(self.batch_genpage)
-        self.texture_label2.setGeometry(QtCore.QRect(135, 185, 155, 25))
+        self.texture_label2.setGeometry(QtCore.QRect(135, 215, 155, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
@@ -235,8 +248,15 @@ class UserInterface(QtWidgets.QMainWindow):
             "Guide to make your own batch set or generate an existing one")
         self.batch_guide.setText("GUIDE")
 
+        # check if user want to generate script
+        self.gen_script2 = QtWidgets.QCheckBox(self.batch_genpage)
+        self.gen_script2.setGeometry(QtCore.QRect(110, 188, 20, 20))
+        self.gen_script2.setChecked(True)
+        self.gen_script2.setDisabled(True)
+
+        # check if user want to generate texture
         self.gen_texture2 = QtWidgets.QCheckBox(self.batch_genpage)
-        self.gen_texture2.setGeometry(QtCore.QRect(110, 188, 20, 20))
+        self.gen_texture2.setGeometry(QtCore.QRect(110, 218, 20, 20))
         self.gen_texture2.setDisabled(True)
 
         # INPUTs
