@@ -7,7 +7,7 @@ class GenerateDictionary:
         self.INDEX = index
         self.INDI = indi
         self.STRING = f"		\"{name}\"			 : {index},		 # {indi}\n"
-        self.DICT_PATH = 'game\\weapons.py'
+        self.DICT_PATH = 'game\\scoring_wpn.py'
         self.PATTERN = r' .*?,'
         self.FORBID_CHAR = [' ', ':', ',']
         self.open_dict()
@@ -30,12 +30,9 @@ class GenerateDictionary:
 
         for item in contents:
             item = item.replace('\n', '')
-
             find_item = re.finditer(self.PATTERN, item)
-
             for item in find_item:
                 item = item.group(0)
-
                 indi_num.append(item)
 
         max_num, str_num = self.get_max(indi_num)
@@ -52,7 +49,6 @@ class GenerateDictionary:
 
         if not_exist:
             contents.insert(max_num_line, self.STRING)
-
         else:
             contents.insert(num_line, self.STRING)
 
@@ -66,7 +62,6 @@ class GenerateDictionary:
         mx = int()
 
         for num in lst:
-
             for char in self.FORBID_CHAR:
                 if char in num:
                     num = num.replace(char, '')

@@ -4,20 +4,23 @@ class GenerateIndication:
         self.WEP_INDEX = wep_index
         self.INDEX_START = 1
         self.INDEX_END = 7
-        self.indi2_act(self.WEP_INDEX)
+        self.OPEN_MODE = 'r+'
+        self.INDI_PATH = 'HUD\\HudSetup\\KillText'
 
         for page in range(self.INDEX_START, self.INDEX_END):
             self.indi1_act(self.WEP_INDEX, page)
+        self.indi2_act(self.WEP_INDEX)
 
     # open indication files 1-6
     def indi1_act(self, index, file_index):
         try:
-            with open(f'HUD\\HudSetup\\Killtext\\HudElementsIndication{file_index}.con', 'r+') as f:
+            with open(f'{self.INDI_PATH}\\CustomizeIndication{file_index}Weapon.con', self.OPEN_MODE) as f:
                 f.readlines()
                 self.write_indi(f, "kill", file_index, index)
 
         except FileNotFoundError as e:
-            print(f"Required Indication file not exist {e}")
+            print(
+                f"Required {self.INDI_PATH}\\CustomizeIndication{file_index}Weapon.con file not exist {e}")
             return False
         finally:
             f.close()
@@ -25,11 +28,12 @@ class GenerateIndication:
     # open attacker weapon file
     def indi2_act(self, index):
         try:
-            with open(f'HUD\\HudSetup\\KillText\\HudElementsAttackerWeapon.con', 'r+') as f:
+            with open(f'{self.INDI_PATH}\\HudElementsAttackerWeapon.con', self.OPEN_MODE) as f:
                 f.readlines()
                 self.write_indi(f, "dead", 0, index)
         except FileNotFoundError as e:
-            print(f"Required AttackerWeapon file doesn't exist {e}")
+            print(
+                f"Required file {self.INDI_PATH}\\HudElementsAttackerWeapon.con file doesn't exist {e}")
         finally:
             f.close()
 
