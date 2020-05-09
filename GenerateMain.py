@@ -29,8 +29,13 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.is_active = bool()
         self.gen_texture1 = bool()
         self.gen_texture2 = bool()
+        self.gen_script1 = True
+        self.gen_script2 = True
         self.index_filled = bool()
         self.CURRENT_DIR = str(os.path.abspath(os.getcwd()))
+        self.EXPORT_ROOT = f'{self.CURRENT_DIR}\\export'
+        self.EXPORT_PNG = f'{self.CURRENT_DIR}\\export\\png'
+        self.EXPORT_DDS = f'{self.CURRENT_DIR}\\export\\dds'
         self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
@@ -66,8 +71,11 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.batch_guide.clicked.connect(
             lambda: webbrowser.open_new_tab('https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file'))
 
-        self.main_ui.gen_texture1.stateChanged.connect(self.gen_picker1)
-        self.main_ui.gen_texture2.stateChanged.connect(self.gen_picker2)
+        self.main_ui.gen_texture1.stateChanged.connect(self.gen1_picker1)
+        self.main_ui.gen_texture2.stateChanged.connect(self.gen1_picker2)
+
+        self.main_ui.gen_script1.stateChanged.connect(self.gen2_picker1)
+        self.main_ui.gen_script2.stateChanged.connect(self.gen2_picker2)
 
         # page switcher
         self.main_ui.single_button.clicked.connect(
@@ -84,20 +92,6 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             self.main_ui.selected_option.setText(self.OPTION_1)
         else:
             self.main_ui.selected_option.setText(self.OPTION_2)
-
-    # get state of single page check box
-    def gen_picker1(self, state):
-        if state == QtCore.Qt.Checked:
-            self.gen_texture1 = True
-        else:
-            self.gen_texture1 = False
-
-    # get state of batch page check box
-    def gen_picker2(self, state):
-        if state == QtCore.Qt.Checked:
-            self.gen_texture2 = True
-        else:
-            self.gen_texture2 = False
 
     # open batch file
     def open_batchfile(self):
@@ -156,6 +150,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.main_ui.gen_texture2.setDisabled(False)
         self.main_ui.texture_label2.setDisabled(False)
 
+        self.main_ui.gen_script2.setDisabled(False)
+        self.main_ui.script_label2.setDisabled(False)
+
         self.batchset_items = BatchProcessing(
             self.batch_contents, self.is_active)
 
@@ -189,47 +186,10 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                     elif re_readbatch[0] == f"{self.ACTIVATION_KEY}\n":
 
-                        if self.gen_texture2:
-                            if self.check_file(f"{self.CURRENT_DIR}\\psd\\Indicationweapon.psd"):
-                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
-
-                                    # deactivate batch set
-                                    DuplicateBatchSafety(
-                                        self.BATCHSET_PATH)
-
-                                    # generate indication from batch set
-                                    for item in range(self.batchset_index, last_index):
-                                        self.gen_indi.init(item)
-                                        self.main_ui.console_window.addItem(
-                                            f"Added index {item} into Indication Files")
-
-                                    for item_name, item_key, item_index in zip(name_list, key_list, range(self.batchset_index, last_index)):
-                                        self.gen_dict.init(
-                                            item_key, item_index, item_name)
-                                        self.main_ui.console_window.addItem(
-                                            f"Added {item_key} as {item_name} with index of {item_index}")
-
-                                    for tex_name, tex_index in zip(name_list, range(self.batchset_index, last_index)):
-                                        GenerateTexture(
-                                            tex_index, tex_name)
-                                        self.main_ui.console_window.addItem(
-                                            f"Texture index {tex_index} is generated with text {tex_name}")
-
-                                    QtWidgets.QMessageBox.information(
-                                        self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
-
-                                else:
-                                    QtWidgets.QMessageBox.warning(
-                                        self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
-
-                            else:
-                                QtWidgets.QMessageBox.warning(
-                                    self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
-
-                        else:
-
+                        if self.gen_script2:
                             # deactivate batch set
-                            DuplicateBatchSafety(self.BATCHSET_PATH)
+                            DuplicateBatchSafety(
+                                self.BATCHSET_PATH)
 
                             # generate indication from batch set
                             for item in range(self.batchset_index, last_index):
@@ -244,7 +204,36 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                     f"Added {item_key} as {item_name} with index of {item_index}")
 
                             QtWidgets.QMessageBox.information(
-                                self, "Batch Processing Succes", "Batch Processing is succes\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is not generated")
+                                self, "Batch Processing Succesfull", "Batch processing is succesfull\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nScript is generated")
+
+                        if self.gen_texture2:
+                            if self.check_file(f"{self.CURRENT_DIR}\\psd\\Indicationweapon.psd"):
+                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
+                                    self.check_exportroot()
+                                    # deactivate batch set
+                                    DuplicateBatchSafety(
+                                        self.BATCHSET_PATH)
+
+                                    for tex_name, tex_index in zip(name_list, range(self.batchset_index, last_index)):
+                                        GenerateTexture(
+                                            tex_index, tex_name)
+                                        self.main_ui.console_window.addItem(
+                                            f"Texture index {tex_index} is generated with text {tex_name}")
+
+                                    QtWidgets.QMessageBox.information(
+                                        self, "Batch Processing Succesfull", "Batch Processing is succesfull\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
+
+                                else:
+                                    QtWidgets.QMessageBox.warning(
+                                        self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
+
+                            else:
+                                QtWidgets.QMessageBox.warning(
+                                    self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
+
+                        if self.gen_script2 == False and self.gen_texture2 == False:
+                            QtWidgets.QMessageBox.warning(
+                                self, "Error", "You must select atleast one of the options")
 
                         self.main_ui.batch_active.setText(
                             "Batch set is deactivated,\nTo reactivate, see guide")
@@ -274,18 +263,24 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
                 if BackupFiles(self.INDI_PATH, self.DICT_PATH, self.BACKUP_FILELIMIT).compress_succes:
 
+                    if self.gen_script1:
+                        self.gen_indi.init(self.wep_index)
+                        self.gen_dict.init(
+                            self.wep_name, self.wep_index, self.wep_indi)
+
+                        QtWidgets.QMessageBox.information(
+                            self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure eveything was done correctly\n\nScripts are generated")
+
                     if self.gen_texture1:
                         if self.check_file(f"{CURRENT_DIR}\\psd\\Indicationweapon.psd"):
                             if self.check_file(f"{CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
-                                self.gen_indi.init(self.wep_index)
-                                self.gen_dict.init(
-                                    self.wep_name, self.wep_index, self.wep_indi)
+                                self.check_exportroot()
 
                                 GenerateTexture(
                                     self.wep_index, self.wep_indi)
 
                                 QtWidgets.QMessageBox.information(
-                                    self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
+                                    self, "Succes", "Succes generating Texture\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
 
                             else:
                                 QtWidgets.QMessageBox.warning(
@@ -295,13 +290,9 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                             QtWidgets.QMessageBox.warning(
                                 self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
 
-                    else:
-                        self.gen_indi.init(self.wep_index)
-                        self.gen_dict.init(
-                            self.wep_name, self.wep_index, self.wep_indi)
-
-                        QtWidgets.QMessageBox.information(
-                            self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure everything was done correctly")
+                    if self.gen_script1 == False and self.gen_texture1 == False:
+                        QtWidgets.QMessageBox.warning(
+                            self, "Error", "You must select atleast one of the options")
 
                 else:
                     QtWidgets.QMessageBox.critical(
@@ -379,6 +370,14 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         else:
             return False
 
+    def check_exportroot(self):
+        if not os.path.exists(self.EXPORT_ROOT):
+            os.makedirs(self.EXPORT_ROOT)
+            if not os.path.exists(self.EXPORT_PNG):
+                os.makedirs(self.EXPORT_PNG)
+            if not os.path.exists(self.EXPORT_DDS):
+                os.makedirs(self.EXPORT_DDS)
+
     # GET INPUT VALUE FROM USER
     # get weapon index from user input
     def weapon_index_act(self, value):
@@ -413,6 +412,34 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             print(self.batchset_index)
         else:
             self.index_filled = False
+
+    # get state of single page check box
+    def gen1_picker1(self, state):
+        if state == QtCore.Qt.Checked:
+            self.gen_texture1 = True
+        else:
+            self.gen_texture1 = False
+
+    # get state of batch page check box
+    def gen1_picker2(self, state):
+        if state == QtCore.Qt.Checked:
+            self.gen_texture2 = True
+        else:
+            self.gen_texture2 = False
+
+    def gen2_picker1(self, state):
+        if state == QtCore.Qt.Checked:
+            print("generate script")
+            self.gen_script1 = True
+        else:
+            self.gen_script1 = False
+
+    def gen2_picker2(self, state):
+        if state == QtCore.Qt.Checked:
+            print("generate script")
+            self.gen_script2 = True
+        else:
+            self.gen_script2 = False
 
     # defining system exception
     def log_uncaught_exceptions(self, ex_cls, ex, tb):
