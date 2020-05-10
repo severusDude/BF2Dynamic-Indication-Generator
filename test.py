@@ -1,6 +1,9 @@
 import os
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import psd_tools
+from psd_tools.api.layers import Layer
+import win32com.client
 
 
 class Test:
@@ -71,3 +74,63 @@ class Test:
         else:
             return False
 
+
+class Test1:
+    def __init__(self):
+        self.CURRENT_DIR = os.path.abspath(os.getcwd())
+        self.INDI_PATH = f'{self.CURRENT_DIR}\\psd\\Indicationweapon.psd'
+        self.KILLED_PATH = f'{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd'
+        self.LEFT_ALIGN = 101
+        self.TEXT_ALIGN_YOU = 806
+        self.RIGHT_ALIGN_YOU = 12
+
+        self.generate()
+
+    def generate(self):
+        # with PSDImage.open(self.INDI_PATH) as indi_doc:
+        #     for layer in indi_doc.:
+
+        indi_doc = psd_tools.PSDImage.open(self.KILLED_PATH)
+
+        for layer in indi_doc.descendants():
+
+            if layer.name == "Shade":
+                shade = layer
+                shade_left = layer.left
+                shade_right = layer.right
+                shade_width = layer.width
+
+                if layer.left != self.LEFT_ALIGN:
+                    layer.left = self.LEFT_ALIGN
+
+            if layer.name == "Main":
+                main = layer
+                main_left = layer.left
+                main_right = layer.right
+                main_width = layer.width
+
+                if layer.left != self.LEFT_ALIGN:
+                    layer.left = self.LEFT_ALIGN
+
+        print(f"{main_width}")
+
+        for layer2 in indi_doc.descendants():
+
+            if layer2.name == "YOU":
+                you = layer2
+                you_left = layer2.left
+                you_loc = main_left + main_width + 12
+
+                if layer2.left != you_loc:
+                    layer2.left = you_loc
+
+        indi_doc.save('try1.psd')
+
+        # print(f"difference is {main_left} {you_left} {you_left - main_left}")
+
+
+x = Test1()
+
+# 159
+# left align text layers with patch layer
+# align text
