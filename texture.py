@@ -2,6 +2,7 @@ import os
 
 from win32com.client import Dispatch
 from wand.image import Image
+import psd_tools
 
 APP = "Photoshop.Application"
 EXPORT_AS = "Photoshop.ExportOptionsSaveForWeb"
@@ -35,7 +36,7 @@ class GenerateTexture:
         self.INDI = indi
 
         self.open_psd("indi")
-        # self.open_psd("killed")
+        self.open_psd("killed")
 
     def open_psd(self, filename):
         if filename == "indi":
@@ -80,10 +81,32 @@ class GenerateTexture:
         shade_text.contents = f"[{self.INDI.upper()}]"
         main_text.contents = f"[{self.INDI.upper()}]"
 
+        doc.save
+        doc.close
+
+        reposition = psd_tools.PSDImage.open(f"{CURRENT_DIR}\\{KILLED_PATH}")
+
+        for main in reposition.descendants():
+            if main.name == "Main":
+                main_left = main.left
+                main_width = main.width
+
+        rel_pos = main_left + main_width + 12
+        for layer in reposition.descendants():
+            if layer.name == "YOU":
+                if layer.left != rel_pos:
+                    layer.left = rel_pos
+
+        print(rel_pos)
+        reposition.save(f'{CURRENT_DIR}\\{KILLED_PATH}')
+
         export_png = f"{CURRENT_DIR}\\export\\png\\KilledIndicationWeapon{self.INDEX}.png"
         export_dds = f"{CURRENT_DIR}\\export\\dds\\KilledIndicationWeapon{self.INDEX}.dds"
 
-        doc.Export(ExportIn=export_png, ExportAs=2, Options=OPTIONS)
+        PSAPP.Open(f"{CURRENT_DIR}\\{KILLED_PATH}")
+        reopen_doc = PSAPP.Application.ActiveDocument
+
+        reopen_doc.Export(ExportIn=export_png, ExportAs=2, Options=OPTIONS)
 
         with Image(filename=export_png) as img:
             img.compression = 'dxt5'
