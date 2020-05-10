@@ -1,6 +1,7 @@
 import sys
 import os
 import webbrowser
+import pkg_resources.py2_warn
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import qdarkstyle
