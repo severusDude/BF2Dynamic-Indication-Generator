@@ -2,7 +2,7 @@ import os
 
 from win32com.client import Dispatch
 from wand.image import Image
-import psd_tools
+from psd_tools import PSDImage
 
 APP = "Photoshop.Application"
 EXPORT_AS = "Photoshop.ExportOptionsSaveForWeb"
@@ -17,8 +17,16 @@ if not os.path.exists(EXPORT_PATH):
     os.makedirs(EXPORT_PATH)
     if not os.path.exists(PNG_PATH):
         os.makedirs(PNG_PATH)
+        if not os.path.exists(f"{PNG_PATH}\\Indication"):
+            os.makedirs(f"{PNG_PATH}\\Indication")
+        if not os.path.exists(f"{PNG_PATH}\\KilledIndication"):
+            os.makedirs(f"{PNG_PATH}\\KilledIndication")
     if not os.path.exists(DDS_PATH):
         os.makedirs(DDS_PATH)
+        if not os.path.exists(f"{DDS_PATH}\\Indication"):
+            os.makedirs(f"{DDS_PATH}\\Indication")
+        if not os.path.exists(f"{DDS_PATH}\\KilledIndication"):
+            os.makedirs(f"{DDS_PATH}\\KilledIndication")
 
 INDI_PATH = f"psd\\Indicationweapon.psd"
 KILLED_PATH = f"psd\\KilledIndicationWeapon.psd"
@@ -62,8 +70,8 @@ class GenerateTexture:
         shade_text.contents = f"[{self.INDI.upper()}]"
         main_text.contents = f"[{self.INDI.upper()}]"
 
-        export_png = f"{CURRENT_DIR}\\export\\png\\Indicationweapon{self.INDEX}.png"
-        export_dds = f"{CURRENT_DIR}\\export\\dds\\Indicationweapon{self.INDEX}.dds"
+        export_png = f"{PNG_PATH}\\Indication\\Indicationweapon{self.INDEX}.png"
+        export_dds = f"{DDS_PATH}\\Indication\\Indicationweapon{self.INDEX}.dds"
 
         doc.Export(ExportIn=export_png, ExportAs=2, Options=OPTIONS)
 
@@ -84,7 +92,7 @@ class GenerateTexture:
         doc.save
         doc.close
 
-        reposition = psd_tools.PSDImage.open(f"{CURRENT_DIR}\\{KILLED_PATH}")
+        reposition = PSDImage.open(f"{CURRENT_DIR}\\{KILLED_PATH}")
 
         for main in reposition.descendants():
             if main.name == "Main":
@@ -100,8 +108,8 @@ class GenerateTexture:
         print(rel_pos)
         reposition.save(f'{CURRENT_DIR}\\{KILLED_PATH}')
 
-        export_png = f"{CURRENT_DIR}\\export\\png\\KilledIndicationWeapon{self.INDEX}.png"
-        export_dds = f"{CURRENT_DIR}\\export\\dds\\KilledIndicationWeapon{self.INDEX}.dds"
+        export_png = f"{PNG_PATH}\\KilledIndication\\KilledIndicationWeapon{self.INDEX}.png"
+        export_dds = f"{DDS_PATH}\\KilledIndication\\KilledIndicationWeapon{self.INDEX}.dds"
 
         PSAPP.Open(f"{CURRENT_DIR}\\{KILLED_PATH}")
         reopen_doc = PSAPP.Application.ActiveDocument

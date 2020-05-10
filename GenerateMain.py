@@ -375,8 +375,16 @@ class ControlMainWindow(QtWidgets.QMainWindow):
             os.makedirs(self.EXPORT_ROOT)
             if not os.path.exists(self.EXPORT_PNG):
                 os.makedirs(self.EXPORT_PNG)
+                if not os.path.exists(f"{self.EXPORT_PNG}\\Indication"):
+                    os.makedirs(f"{self.EXPORT_PNG}\\Indication")
+                if not os.path.exists(f"{self.EXPORT_PNG}\\KilledIndication"):
+                    os.makedirs(f"{self.EXPORT_PNG}\\KilledIndication")
             if not os.path.exists(self.EXPORT_DDS):
                 os.makedirs(self.EXPORT_DDS)
+                if not os.path.exists(f"{self.EXPORT_DDS}\\Indication"):
+                    os.makedirs(f"{self.EXPORT_DDS}\\Indication")
+                if not os.path.exists(f"{self.EXPORT_DDS}\\KilledIndication"):
+                    os.makedirs(f"{self.EXPORT_DDS}\\KilledIndication")
 
     # GET INPUT VALUE FROM USER
     # get weapon index from user input
