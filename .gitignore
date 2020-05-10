@@ -3,6 +3,7 @@
 *.spec
 test.py
 .vscode
+venv
 export
 build
 dist
