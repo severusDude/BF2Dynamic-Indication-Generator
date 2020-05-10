@@ -4,7 +4,9 @@ This format is based on [Keep a Changelog](keepachangelog.com) and this project 
 <!-- ## release vMaj.Min.Patch date-month-year
 ### Added
 * Safety feature for batch processing to prevent accidental duplicate batch set
-* Option to generate texture for both single generate and batch processing
+* Generate indication texture
+* Generate killed indication texture
+* Option to generate texture
 * Option to generate only scripts
 ### Changed
 * Now compatible with the [Dynamic Indication version 5.3.4](https://www.moddb.com/mods/dynamic-indication-v40-released)
