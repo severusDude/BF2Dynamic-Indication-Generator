@@ -1,6 +1,7 @@
 *.code-workspace
 *.exe
 *.spec
+test.py
 .vscode
 export
 build
