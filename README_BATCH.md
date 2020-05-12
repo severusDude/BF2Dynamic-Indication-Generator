@@ -31,7 +31,7 @@
 ### State of a batch set
 A batch set have a state as it shown below.
 1. An active batch set have keyword **"activate"** on the first line.\
-   ![active-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/activated-batch-set.png "Activated Batch Set Example")
+   ![active-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/activated-batch%20set.png "Activated Batch Set Example")
 2. An deactivated batch set have keyword **"deactivate"** on the first line.\
    ![deactivated-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/deactivated-batch-set.png "Deactivated Batch Set Example")
 
