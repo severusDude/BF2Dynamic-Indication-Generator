@@ -80,7 +80,7 @@ Before you generate textures, please follow this instruction.
 11. Double click the most top layer and change it name into ***Shade***.\
    ![step-11](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial11.png "Step 11")
 12. Select text and change it allignment to left.\
-   ![step-12](https://gtihub.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial12.png "Step 12")
+   ![step-12](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial12.png "Step 12")
 13. Double click second most top layer and change it name into ***Main***.\
    ![step-13](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial10.png "Step 13")
 14. Select text and change it allignment to left.\
