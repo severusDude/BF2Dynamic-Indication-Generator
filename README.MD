@@ -45,8 +45,8 @@ Install packages using\
 
 ## Dependancies
 This app requires third party software such as listed below:
-* [Imagemagick](https://imagemagick.org/script/download.php)
-  For Windows 32-bit: **Imagemagick-7.0.x.x-Q16-x86-dll.exe**
+* [Imagemagick](https://imagemagick.org/script/download.php)\
+  For Windows 32-bit: **Imagemagick-7.0.x.x-Q16-x86-dll.exe**\
   For Windows 64-bit: **Imagemagick-7.0.x.x-Q16-x64-dll.exe**
 * [Photoshop](https://www.adobe.com/products/photoshop.html)\
   **NOTE**: 
