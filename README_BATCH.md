@@ -1,50 +1,65 @@
 # Getting started
-![batch preview](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20batch%20preview.png "Batch menu preview")
+![batch-preview](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.7.3-batch-preview.png "Batch menu preview")
 ## Write a batch set
 ### Create batch set file
 1. Create a new .txt file.
 2. Open it.
-3. Add activate on the first line.
+3. Add **"activate"** on the first line.
 4. Save the file.
 
 **NOTE**\
-*After you write activate on the first line, the file is now considered a valid batch set.*\
-**Valid batch set example**\
-![valid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/valid%20batch%20set.png "Valid Batch Set")\
-**Invalid batch set example**\
-![invalid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/invalid%20batch%20set.png "Invalid Batch Set")
+*After you write activate on the first line, the file is now considered a valid batch set.*
 
-
-### Decide item for batch set
+### Add item for batch set
 1. Start by find the weapons you wanted to add to your batch set.
 2. To do this, simply navigate through your weapons folder.
 3. The .tweak file name is what you are looking for, example.\
    ```bf4_ak47.tweak```
-4. Try to remember it, or just write it on a note
+4. Try to remember it, or just write it on a note.
 5. Decide your name pick for the indication, for example.\
    ```AK-47```
-### Write picked item to batch set
-1. Start by adding brackets, example\
+### Write item to batch set
+1. Start by adding brackets, example.\
    ```[] ()```
-2. Note that the there is two brackets and it separated by whitespace, the square bracket contain the ***Indicator***, while round brackets contain the ***The name of the weapon***
-3. By following the principle, your weapon item should look like this\
+2. Note that the there is two brackets and it separated by whitespace, the square bracket contain the ***Indicator***, while round brackets contain the ***The name of the weapon***.
+3. By following the principle, your weapon item should look like this.\
    ```[AK-47] (bf4_ak47)```
-4. If you still unsure, check the see [batch set example](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/batch/batch-test.txt)
+4. If you still unsure, check the see [batch set example](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/batch/batch-test.txt).
 5. That should be the end of the tutorial.
 
-## Generate created batch set
-1. Go to batch page, which is a button with **BATCH** text on it
-2. Open batch set file using **OPEN FILE** button
-3. Select your batch set file
-4. If the text next to the button say\
-   ```Batch file is active```\
-   you can then continue\
-   ![verified/valid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20valid%20batch%20set.png "Valid Batch Set Example")
-5. If it say otherwise,\
-   ![invalid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/beta1.0.0%20invalid%20batch%20set.png "Invalid Batch Set Example")\
-   please check [batch set file requirment](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file)
-6. Before generating, you need to fill **STARTING INDEX** input
-7. The input will be a starting point for the index
-8. Please see the [rules](https://github.com/severusDude/BF2Dynamic-Indication-Generator#weapon-index-fill) to fill the input
-9.  Hit the **START BATCH** button
-10. A compressed backup file will be generated at *Backups* folder
+## Generate a batch set
+### State of a batch set
+A batch set have a state as it shown below.
+1. An active batch set have keyword **"activate"** on the first line.\
+   ![active-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/activated-batch-set.png "Activated Batch Set Example")
+2. An deactivated batch set have keyword **"deactivate"** on the first line.\
+   ![deactivated-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/deactivated-batch-set.png "Deactivated Batch Set Example")
+
+   To reactivate a batch set, simply refer to [Create batch set file instruction](https://github.con/severusDude/BF2Dynamic-Indication-Generator/blob/master/README_BATCH.md#create-batch-set-file)
+3. Or it can have unknown keyword and it will be considered as invalid batch set.\
+   ![invalid-batch-set](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/invalid-batch-set.png "Invalid Batch Set Example")
+   
+
+
+### Generate
+1. Go to batch page.
+2. Open a batch set.
+3. Fill starting index textfield with the index you want to start of.
+4. You can choose to either only generate texture or scripts(*generated by default*).
+5. When generating, an compressed file containing unmodified files will be generated.
+6. After succesfull generate, a notification window will be appear.
+7. Opened batch set will be deactivated to prevent generate duplicate batch set.
+   
+**CAUTION**
+* *Generating texture will be memory consuming, make sure you close apps you don't need.*
+* *If both options is checked, there will two different succesfull generate notification window, don't close app before the second one appear.*
+
+
+### Options
+1. If generate scripts option is checked(*by default*), files named as below will be opened and modified.
+   * CustomizeIndication1-6Weapon.con
+   * HudElementsAttackerWeapon.con
+   * scoring_wpn.py
+2. If generate textures option is checked, photoshop will be run and files named as below will be opened, modified and exported as .dds file.
+   * Indicationweapon.psd
+   * KilledIndicationWeapon.psd
