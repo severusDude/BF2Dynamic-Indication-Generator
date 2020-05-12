@@ -62,18 +62,18 @@ Before you generate textures, please follow this instruction.
 2. Double click the most top layer and change it name into ***Shade***.\
    ![step-2](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial2.png "Step 2")
 3. Select text and change it alignment to right.\
-   ![step-3](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common.images/psd-tutorial/psd-tutorial3.png "Step 3")
+   ![step-3](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial3.png "Step 3")
 4. Double click the second to top layer and change it name into ***Main***.\
    ![step-4](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial4.png "Step 4")
 5. Select text and change it alignment to right.\
-   ![step-5](https://gihub.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial5.png "Step 5")
+   ![step-5](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial5.png "Step 5")
 6. Select 3 layers.\
    ![step-6](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial6.png "Step 6")
 7. Align them to right edges.\
    ![step-7](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial7.png "Step 7")
 8. Hide the black colored box layer.\
    ![step-8](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial8.png "Step 8")
-9.  Save and close the psd file.\
+9. Save and close the psd file.\
    ![step-9](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial9.png "Step 9")
 10. Open KilledIndicationWeapon.psd file from [Dynamic Indication mod](https://www.moddb.com/mods/dynamic-indication-v40-released).\
    ![step-10](https://github.com/severusDude/BF2Dynamic-Indication-Generator/blob/master/common/images/psd-tutorial/psd-tutorial10.png "Step 10")
