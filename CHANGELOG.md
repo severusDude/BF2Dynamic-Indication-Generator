@@ -1,7 +1,7 @@
 # Changelog
 All notable change will be documented in this file.\
 This format is based on [Keep a Changelog](keepachangelog.com) and this project adheres to [Semantic Versioning](semver.org)
-<!-- ## release vMaj.Min.Patch date-month-year
+## release v1.7.3 13-05-2020
 ### Added
 * Safety feature for batch processing to prevent accidental duplicate batch set
 * Generate indication texture
@@ -12,7 +12,6 @@ This format is based on [Keep a Changelog](keepachangelog.com) and this project 
 * Now compatible with the [Dynamic Indication version 5.3.4](https://www.moddb.com/mods/dynamic-indication-v40-released)
 ### Fixed
 * Fixed dictionary line searching
--->
 
 ## release v1.1.2-beta 03-05-2020
 Beta version of Crypter
