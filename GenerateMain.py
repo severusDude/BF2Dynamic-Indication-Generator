@@ -12,7 +12,6 @@ from batch import *
 from batchSafety import *
 from generateindication import *
 from generatedictionary import *
-from texture import *
 
 
 class ControlMainWindow(QtWidgets.QMainWindow):
@@ -32,11 +31,12 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         self.gen_texture2 = bool()
         self.gen_script1 = True
         self.gen_script2 = True
-        self.index_filled = bool()
         self.CURRENT_DIR = str(os.path.abspath(os.getcwd()))
         self.EXPORT_ROOT = f'{self.CURRENT_DIR}\\export'
         self.EXPORT_PNG = f'{self.CURRENT_DIR}\\export\\png'
         self.EXPORT_DDS = f'{self.CURRENT_DIR}\\export\\dds'
+        self.PSD_INDI = f'{self.CURRENT_DIR}\\psd\\Indicationweapon.psd'
+        self.PSD_KILLED = f'{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd'
         self.BATCHSET_PATH = str()
         self.OPTION_1 = "SINGLE GENERATE"
         self.OPTION_2 = "BATCH PROCESSING"
@@ -208,29 +208,24 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                                 self, "Batch Processing Succesfull", "Batch processing is succesfull\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nScript is generated")
 
                         if self.gen_texture2:
-                            if self.check_file(f"{self.CURRENT_DIR}\\psd\\Indicationweapon.psd"):
-                                if self.check_file(f"{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
-                                    self.check_exportroot()
-                                    # deactivate batch set
-                                    DuplicateBatchSafety(
-                                        self.BATCHSET_PATH)
+                            if self.check_psd():
+                                import texture
+                                self.check_exportroot()
 
-                                    for tex_name, tex_index in zip(name_list, range(self.batchset_index, last_index)):
-                                        GenerateTexture(
-                                            tex_index, tex_name)
-                                        self.main_ui.console_window.addItem(
-                                            f"Texture index {tex_index} is generated with text {tex_name}")
+                                # deactivate batch set
+                                DuplicateBatchSafety(
+                                    self.BATCHSET_PATH)
 
-                                    QtWidgets.QMessageBox.information(
-                                        self, "Batch Processing Succesfull", "Batch Processing is succesfull\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
+                                for tex_index, tex_name in zip(range(self.batchset_index, last_index), name_list):
+                                    texture.GenerateTexture.init_killindi(
+                                        index=tex_index, indi=tex_name)
+                                    texture.GenerateTexture.init_killedindi(
+                                        index=tex_index, indi=tex_name)
+                                    self.main_ui.console_window.addItem(
+                                        f"Texture indication with name {tex_name.upper()} and index of {tex_index} is generated")
 
-                                else:
-                                    QtWidgets.QMessageBox.warning(
-                                        self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
-
-                            else:
-                                QtWidgets.QMessageBox.warning(
-                                    self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
+                                QtWidgets.QMessageBox.information(
+                                    self, "Batch Processing Succesfull", "Batch Processing is succesfull\nBatch set is now deactivated,\nplease re-examine the files before you moved them to your mod\n\nTexture is generated")
 
                         if self.gen_script2 == False and self.gen_texture2 == False:
                             QtWidgets.QMessageBox.warning(
@@ -258,7 +253,7 @@ class ControlMainWindow(QtWidgets.QMainWindow):
 
     # start the whole system
     def gen_button_act(self):
-        if self.wep_index > 0 and len(self.wep_name) > 0 and len(self.wep_indi) > 0:
+        if self.check_input():
 
             if self.check_files():
 
@@ -273,23 +268,17 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                             self, "Succes", "Succes generating scripts\nPlease re-check the files to make sure eveything was done correctly\n\nScripts are generated")
 
                     if self.gen_texture1:
-                        if self.check_file(f"{CURRENT_DIR}\\psd\\Indicationweapon.psd"):
-                            if self.check_file(f"{CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd"):
-                                self.check_exportroot()
+                        if self.check_psd():
+                            import texture
+                            self.check_exportroot()
 
-                                GenerateTexture(
-                                    self.wep_index, self.wep_indi)
+                            texture.GenerateTexture.init_killindi(
+                                index=self.wep_index, indi=self.wep_indi.upper())
+                            texture.GenerateTexture.init_killedindi(
+                                index=self.wep_index, indi=self.wep_indi.upper())
 
-                                QtWidgets.QMessageBox.information(
-                                    self, "Succes", "Succes generating Texture\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
-
-                            else:
-                                QtWidgets.QMessageBox.warning(
-                                    self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\KilledIndicationWeapon.psd")
-
-                        else:
-                            QtWidgets.QMessageBox.warning(
-                                self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file missing\n\t{self.CURRENT_DIR}\\psd\\Indicationweapon.psd")
+                            QtWidgets.QMessageBox.information(
+                                self, "Succes", "Succes generating Texture\nPlease re-check the files to make sure everything was done correctly\n\nTexture is generated")
 
                     if self.gen_script1 == False and self.gen_texture1 == False:
                         QtWidgets.QMessageBox.warning(
@@ -371,6 +360,19 @@ class ControlMainWindow(QtWidgets.QMainWindow):
         else:
             return False
 
+    def check_psd(self):
+        if os.path.exists(self.PSD_INDI):
+            if os.path.exists(self.PSD_KILLED):
+                return True
+            else:
+                QtWidgets.QMessageBox.warning(
+                    self, "Error FNE_PSD_2", f"Error code: PSD_2\n\nRequired file is missing\n\t{self.PSD_KILLED}")
+                return False
+        else:
+            QtWidgets.QMessageBox.warning(
+                self, "Error FNE_PSD_1", f"Error code: PSD_1\n\nRequired file is missing\n\t{self.PSD_INDI}")
+            return False
+
     def check_exportroot(self):
         if not os.path.exists(self.EXPORT_ROOT):
             os.makedirs(self.EXPORT_ROOT)
@@ -387,40 +389,48 @@ class ControlMainWindow(QtWidgets.QMainWindow):
                 if not os.path.exists(f"{self.EXPORT_DDS}\\KilledIndication"):
                     os.makedirs(f"{self.EXPORT_DDS}\\KilledIndication")
 
+    def check_input(self):
+        try:
+            if self.wep_index > 0:
+                if len(self.wep_name) > 0:
+                    if len(self.wep_indi) > 0:
+                        return True
+        except:
+            return False
+
     # GET INPUT VALUE FROM USER
     # get weapon index from user input
     def weapon_index_act(self, value):
-        if len(value) > 0:
+        try:
             self.wep_index = value
             self.wep_index = int(self.wep_index)
-            print(self.wep_index)
-        else:
-            None
+        except:
+            print("Empty")
+        print(self.wep_index)
 
     # get weapon name from user input
     def weapon_name_act(self, value):
-        if len(value) > 0:
+        try:
             self.wep_name = value
-            print(self.wep_name)
-        else:
-            None
+        except:
+            print("Empty")
+        print(self.wep_name)
 
     # get weapon indication from user input
     def weapon_indi_act(self, value):
-        if len(value) > 0:
+        try:
             self.wep_indi = value
-            print(self.wep_indi)
-        else:
-            None
+        except:
+            print("Empty")
+        print(self.wep_indi)
 
     # get starting batch set index from user input
     def get_index_start(self, value):
-        if len(value) > 0:
-            self.index_filled = True
+        try:
             self.batchset_index = int(value)
-            print(self.batchset_index)
-        else:
-            self.index_filled = False
+        except:
+            print("Empty")
+        print(self.batchset_index)
 
     # get state of single page check box
     def gen1_picker1(self, state):
