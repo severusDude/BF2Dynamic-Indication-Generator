@@ -215,7 +215,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
         # generate texture label
         self.texture_label2 = QtWidgets.QLabel(self.batch_genpage)
-        self.texture_label2.setGeometry(QtCore.QRect(135, 215, 155, 25))
+        self.texture_label2.setGeometry(QtCore.QRect(135, 205, 155, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
@@ -272,7 +272,7 @@ class UserInterface(QtWidgets.QMainWindow):
 
         # check if user want to generate texture
         self.gen_texture2 = QtWidgets.QCheckBox(self.batch_genpage)
-        self.gen_texture2.setGeometry(QtCore.QRect(110, 218, 20, 20))
+        self.gen_texture2.setGeometry(QtCore.QRect(110, 208, 20, 20))
         self.gen_texture2.setDisabled(True)
 
         # INPUTs
