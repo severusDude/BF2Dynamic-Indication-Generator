@@ -4,6 +4,215 @@ import os
 import re
 
 
+class Batch:
+    def __init__(self, path):
+        self.path = path
+        try:
+            self.file = open(path, 'r+')
+            self.err = False
+        except FileNotFoundError as e:
+            print("file not found")
+            self.err = True
+            raise e
+
+    def activate_batch(self):
+        """Mark opened text file as eligible batch set"""
+        if not self.err:
+            with open(self.path, 'r+') as f:
+                contents = f.readlines()
+                if self.is_active():
+                    print("Batch set already activated")
+                else:
+                    try:
+                        contents.remove("deactivate\n")
+                    except ValueError as e:
+                        pass
+                    finally:
+                        self.clear_content(f)
+                        contents.insert(0, "activate\n")
+                        contents = "".join(contents)
+                        f.seek(0)
+                        f.write(contents)
+
+    def deactivate_batch(self):
+        """Mark opened text file as deactivated batch set"""
+        if not self.err:
+            with open(self.path, 'r+') as f:
+                contents = f.readlines()
+                if not self.is_active():
+                    print("Batch set already deactivated")
+                else:
+                    try:
+                        contents.remove("activate\n")
+                    except ValueError as e:
+                        pass
+                    finally:
+                        self.clear_content(f)
+                        contents.insert(0, "deactivate\n")
+                        contents = "".join(contents)
+                        f.seek(0)
+                        f.write(contents)
+
+    def get_items(self):
+        """Get items from opened batch set"""
+        items = dict()
+
+        with open(self.path, 'r') as f:
+            contents = f.readlines()
+
+            for line in contents:
+
+                m = re.search('\[(.+?)\]', line.strip())
+                n = re.search('\((.+?)\)', line.strip())
+                index = re.search('(--\d{1,4})', line.strip())
+
+                if m and n and index:
+                    temp = index.group(1)
+                    temp = temp.replace('-', '')
+                    items[n.group(1)] = [m.group(1), int(temp)]
+                elif m and n:
+                    items[n.group(1)] = m.group(1)
+
+        return items
+
+    def add_item(self, key, value):
+        """Add item to opened batch set"""
+        if isinstance(key, str) and isinstance(value, str):
+            with open(self.path, "r+") as f:
+                f.readlines()
+                f.write(f"[{key}] ({value})")
+        else:
+            raise TypeError("Invalid input type, please use string")
+
+    def gen_script(self, index=1):
+        """Generate script from current opened batch set"""
+        items = self.get_items()
+        temp_index = index
+        index_list = []
+
+        for name, indi in items.items():
+            if not isinstance(indi, list):
+                index_list.append(temp_index)
+                temp_index += 1
+            else:
+                index_list.append(int(indi[1]))
+
+        con_path = 'HUD\\HudSetup\\KillText\\'
+        dict_path = 'game\\scoring_wpn.py'
+
+        # Generating on con files section
+        for i in range(len(items)):
+            for page in range(1, 7):
+                string1 = f"""
+hudBuilder.createPictureNode\tIngameHud Indication{page}weapon{index} 301 352 162 24
+hudBuilder.setPictureNodeTexture\tIngame/Killtext/Indication/Indicationweapon{index}.dds
+hudBuilder.setNodeShowVariable\tDemoRecInterfaceShow
+hudBuilder.setNodeColor\t\t1 1 1 0.8
+hudBuilder.setNodeInTime\t0.15
+hudBuilder.setNodeOutTime\t0.2
+hudBuilder.addNodeMoveShowEffect\t0 90
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect\t\t7 2
+"""
+                try:
+                    with open(f'{con_path}CustomizeIndication{page}Weapon.con', 'r+') as f:
+                        f.readlines()
+                        f.write(string1)
+
+                except FileNotFoundError:
+                    print(
+                        f"Error while writing on '{con_path}CustomizeIndication{page}Weapon.con'.\nReason: File not exist")
+
+            try:
+                string2 = f"""
+hudBuilder.createPictureNode\tIngameHud AttackerWeapon{index} 378 496 216 32
+hudBuilder.setPictureNodeTexture\tIngame/Killtext/KilledIndication/KilledIndicationWeapon{index}.dds
+hudBuilder.setNodeShowVariable\tDemoRecInterfaceShow
+hudBuilder.setNodeColor\t\t1 1 1 0.8
+hudBuilder.setNodeInTime\t0.2
+hudBuilder.setNodeOutTime\t0.1
+hudBuilder.addNodeAlphaShowEffect
+hudBuilder.addNodeBlendEffect\t\t7 2
+"""
+                with open(f'{con_path}HudElementsAttackerWeapon.con', 'r+') as f:
+                    f.readlines()
+                    f.write(string2)
+
+            except FileNotFoundError:
+                print(
+                    f"Error while writing on '{con_path}HudElementsAttackerWeapon.con'.\nReason: File not exist")
+
+            index += 1
+
+        # Generating on python dictionary section
+        dict_loc = f"{os.path.abspath(os.getcwd())}\\game\\scoring_wpn.py"
+        try:
+            with open(dict_loc, 'r+') as f:
+                contents = f.readlines()
+                index_dict = {}
+                indexed_items = {}
+
+                for (key, value), point in zip(items.items(), index_list):
+                    if not isinstance(value, list):
+                        indexed_items[point] = [key, value]
+                    else:
+                        indexed_items[point] = [key, value[0]]
+
+                for num, line in enumerate(contents, 1):
+                    item = re.search('(:.+?,)', line.strip())
+                    if item:
+                        conv_srch = item.group(1)
+                        conv_srch = conv_srch.translate(
+                            conv_srch.maketrans('', '', ':, '))
+                        index_dict[int(conv_srch)] = num
+
+                for (key, value), increment_index in zip(sorted(indexed_items.items()), range(len(indexed_items))):
+                    if key in index_dict.keys():
+                        contents.insert(index_dict.get(key)+increment_index,
+                                        f"\t\t\"{value[0]}\"\t\t\t: {key},\t\t# {value[1]}\n")
+                        increment_index += 1
+
+                contents = "".join(contents)
+
+                self.clear_content(f)
+                f.write(contents)
+
+                self.deactivate_batch()
+
+        except FileNotFoundError as e:
+            print("File cannot be found")
+
+    def gen_texture(self):
+        pass
+
+    def is_active(self):
+        """Check if opened text file if it's active or not"""
+        if not self.err:
+            with open(self.path, 'r') as f:
+                contents = f.readlines()
+                contents = [item.replace('\n', '') for item in contents]
+                if contents.count("deactivate".casefold()) > 0:
+                    return False
+                elif contents.count("activate".casefold()) > 0:
+                    return True
+                else:
+                    return False
+
+    def clear_content(self, del_content):
+        """Clear the contents of current opened file"""
+        del_content.read().split('\n')
+        del_content.seek(0)
+        del_content.truncate()
+
+
+x = Batch(
+    "D:\\Documents\\GitHub\\BF2Dynamic-Indication-Generator\\batch\\batch-test.txt")
+x.gen_script(4)
+# test = {1: 2, 3: 4}
+# test[1] = [5]
+# print(test)
+
+
 class BatchProcessing:
     def __init__(self, file_contents, active):
         self.NAME_PATTERN = r'\[.*?\]'
