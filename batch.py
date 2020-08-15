@@ -6,6 +6,7 @@ import re
 
 class Batch:
     def __init__(self, path):
+        self.current_dir = os.path.abspath(os.getcwd())
         self.path = path
         try:
             self.file = open(path, 'r+')
@@ -88,8 +89,10 @@ class Batch:
         """Generate script from current opened batch set"""
         items = self.get_items()
         temp_index = index
+        indexed_items = {}
         index_list = []
 
+        # Get list of index for every batch item
         for name, indi in items.items():
             if not isinstance(indi, list):
                 index_list.append(temp_index)
@@ -97,25 +100,32 @@ class Batch:
             else:
                 index_list.append(int(indi[1]))
 
-        con_path = 'HUD\\HudSetup\\KillText\\'
-        dict_path = 'game\\scoring_wpn.py'
+        # Put batch item in dictionary with all the characteristic
+        for (key, value), point in zip(items.items(), index_list):
+            if not isinstance(value, list):
+                indexed_items[point] = [key, value]
+            else:
+                indexed_items[point] = [key, value[0]]
+
+        con_path = f'{self.current_dir}\\HUD\\HudSetup\\KillText\\'
+        dict_path = f'{self.current_dir}\\game\\scoring_wpn.py'
 
         # Generating on con files section
-        for i in range(len(items)):
+        for i in sorted(indexed_items.keys()):
             for page in range(1, 7):
-                string1 = f"""
-hudBuilder.createPictureNode\tIngameHud Indication{page}weapon{index} 301 352 162 24
-hudBuilder.setPictureNodeTexture\tIngame/Killtext/Indication/Indicationweapon{index}.dds
-hudBuilder.setNodeShowVariable\tDemoRecInterfaceShow
-hudBuilder.setNodeColor\t\t1 1 1 0.8
-hudBuilder.setNodeInTime\t0.15
-hudBuilder.setNodeOutTime\t0.2
+                try:
+                    with open(f'{con_path}CustomizeIndication{page}Weapon.con', 'r+') as f:
+                        string1 = f"""
+hudBuilder.createPictureNode\t\tIngameHud Indication{page}weapon{i} 301 352 162 24
+hudBuilder.setPictureNodeTexture\tIngame/Killtext/Indication/Indicationweapon{i}.dds
+hudBuilder.setNodeShowVariable\t\tDemoRecInterfaceShow
+hudBuilder.setNodeColor\t\t\t\t1 1 1 0.8
+hudBuilder.setNodeInTime\t\t\t0.15
+hudBuilder.setNodeOutTime\t\t\t0.2
 hudBuilder.addNodeMoveShowEffect\t0 90
 hudBuilder.addNodeAlphaShowEffect
 hudBuilder.addNodeBlendEffect\t\t7 2
 """
-                try:
-                    with open(f'{con_path}CustomizeIndication{page}Weapon.con', 'r+') as f:
                         f.readlines()
                         f.write(string1)
 
@@ -124,17 +134,17 @@ hudBuilder.addNodeBlendEffect\t\t7 2
                         f"Error while writing on '{con_path}CustomizeIndication{page}Weapon.con'.\nReason: File not exist")
 
             try:
-                string2 = f"""
-hudBuilder.createPictureNode\tIngameHud AttackerWeapon{index} 378 496 216 32
-hudBuilder.setPictureNodeTexture\tIngame/Killtext/KilledIndication/KilledIndicationWeapon{index}.dds
-hudBuilder.setNodeShowVariable\tDemoRecInterfaceShow
-hudBuilder.setNodeColor\t\t1 1 1 0.8
-hudBuilder.setNodeInTime\t0.2
-hudBuilder.setNodeOutTime\t0.1
+                with open(f'{con_path}HudElementsAttackerWeapon.con', 'r+') as f:
+                    string2 = f"""
+hudBuilder.createPictureNode\t\tIngameHud AttackerWeapon{i} 378 496 216 32
+hudBuilder.setPictureNodeTexture\tIngame/Killtext/KilledIndication/KilledIndicationWeapon{i}.dds
+hudBuilder.setNodeShowVariable\t\tDemoRecInterfaceShow
+hudBuilder.setNodeColor\t\t\t\t1 1 1 0.8
+hudBuilder.setNodeInTime\t\t\t0.2
+hudBuilder.setNodeOutTime\t\t\t0.1
 hudBuilder.addNodeAlphaShowEffect
 hudBuilder.addNodeBlendEffect\t\t7 2
 """
-                with open(f'{con_path}HudElementsAttackerWeapon.con', 'r+') as f:
                     f.readlines()
                     f.write(string2)
 
@@ -142,21 +152,13 @@ hudBuilder.addNodeBlendEffect\t\t7 2
                 print(
                     f"Error while writing on '{con_path}HudElementsAttackerWeapon.con'.\nReason: File not exist")
 
-            index += 1
+            # index += 1
 
         # Generating on python dictionary section
-        dict_loc = f"{os.path.abspath(os.getcwd())}\\game\\scoring_wpn.py"
         try:
-            with open(dict_loc, 'r+') as f:
+            with open(dict_path, 'r+') as f:
                 contents = f.readlines()
                 index_dict = {}
-                indexed_items = {}
-
-                for (key, value), point in zip(items.items(), index_list):
-                    if not isinstance(value, list):
-                        indexed_items[point] = [key, value]
-                    else:
-                        indexed_items[point] = [key, value[0]]
 
                 for num, line in enumerate(contents, 1):
                     item = re.search('(:.+?,)', line.strip())
